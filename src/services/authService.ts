@@ -1,6 +1,5 @@
 import { axiosInstance } from "@/lib/axios";
 import { EMAIL_VERIFICATION_ENDPOINT, FORGOT_PASSWORD_ENDPOINT, LOGIN_ENDPOINT, REGISTER_ENDPOINT, RESET_PASSWORD_ENDPOINT, VERIFY_TOKEN_RESET_PASSWORD_ENDPOINT } from "@/lib/endpoints";
-import { getUserIdFromToken } from "@/lib/token";
 import { useMutation, useQuery } from "@tanstack/react-query";
 import Cookies from "js-cookie";
 
@@ -25,14 +24,13 @@ export const useLogin = ({ onSuccess, onError }: StateStatus) => {
   return useMutation({
     mutationFn: async (body: { email: string; password: string }) => {
       const response = await axiosInstance.post(LOGIN_ENDPOINT ?? "", body);
-      console.log(response.data);
       const access_token = response.data.data?.access_token;
       const expirationTime = Number(process.env.NEXT_PUBLIC_TOKEN_EXPIRES_IN);
 
       if (access_token) {
         Cookies.set("access_token", access_token, {
           expires: expirationTime,
-          secure: true,
+          secure: !!process.env.NEXT_PUBLIC_TOKEN_SECURE,
           sameSite: "strict",
         });
       }
@@ -45,7 +43,6 @@ export const useLogin = ({ onSuccess, onError }: StateStatus) => {
 };
 
 export const useResetPassword = (token: string, { onSuccess, onError }: StateStatus) => {
-  console.log(token);
   console.log(`${RESET_PASSWORD_ENDPOINT}${token}`);
   return useMutation({
     mutationFn: async (body: { password: string; confirmPassword: string }) => {
