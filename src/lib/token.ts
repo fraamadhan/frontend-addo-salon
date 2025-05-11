@@ -7,6 +7,10 @@ export const getAccessToken = () => {
   return accessToken;
 };
 
+export const deleteAccessToken = () => {
+  Cookies.remove("access_token");
+};
+
 export const jwtTokenDecode = (token: string) => {
   if (!token) return null;
 

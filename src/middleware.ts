@@ -8,7 +8,7 @@ export async function middleware(req: NextRequest) {
   let isInvalidToken = false;
 
   const { pathname } = req.nextUrl;
-  // console.log("Pathname:", pathname);
+  console.log("Pathname:", pathname);
 
   const publicRoutePatterns = publicRoutes.map((path) => pathToRegexp(path));
   const isPublicRoute = publicRoutePatterns.some((route) => route.regexp.test(pathname));
@@ -23,7 +23,7 @@ export async function middleware(req: NextRequest) {
   }
 
   if (!access_token && !isPublicRoute) {
-    // console.log("Handling Unauthorized Access");
+    console.log("Handling Unauthorized Access", isPublicRoute);
     return NextResponse.redirect(new URL("/auth/login", req.url));
   }
 
@@ -55,5 +55,5 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!api|_next/static|_next/image|.*\\.png$).*)"],
+  matcher: ["/((?!api|_next/static|_next/image|.*\\.(?:jpg|svg|jpeg|png)$).*)"],
 };
