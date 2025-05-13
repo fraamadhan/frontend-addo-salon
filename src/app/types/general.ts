@@ -17,3 +17,19 @@ export type User = {
   };
   __v: number;
 };
+
+export type ReviewItemProps = {
+  _id: string;
+  review: string;
+  rating: number;
+  product: {
+    _id: string;
+    name: string;
+    ratingAverage: number;
+  };
+  user: {
+    _id: string;
+    name: string;
+    assetRef: string;
+  };
+};

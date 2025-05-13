@@ -3,7 +3,7 @@
  * These routes don't require authentication
  * @type {string[]}
  */
-export const publicRoutes = ["/favicon.ico", "/", "home", "/auth/login", "/auth/register", "/auth/verify-email/:token", "/auth/forgot-password", "/auth/reset-password/:token", "/home"];
+export const publicRoutes = ["/favicon.ico", "/", "/auth/login", "/auth/register", "/auth/verify-email/:token", "/auth/forgot-password", "/auth/reset-password/:token", "/home", "/service", "/service/:productId"];
 
 /**
  * An array of routes that are used for authentication

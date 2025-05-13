@@ -41,7 +41,7 @@ export const Header = () => {
     }
 
     return (
-        <header className="sticky top-0 flex flex-col w-full items-center justify-center bg-gray-600 z-50 h-[7em] px-7 md:px-17">
+        <header className="sticky top-0 flex flex-col w-full items-center justify-center bg-gray-600 z-50 h-[7em] px-7 md:px-17 font-lora">
             <DesktopHeader isLogin={isLogin} user={user} />
             <MobileHeader isLogin={isLogin} user={user} />
         </header>
