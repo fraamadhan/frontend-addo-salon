@@ -15,7 +15,7 @@ export const Footer = () => {
             {/* informasi terkait addo salon */}
             <div className="flex flex-col space-y-5 md:flex-row justify-between mt-4">
                 <div className="flex flex-col gap-y-5 items-center md:items-start">
-                    <h3 className="text-2xl">Addo Salon</h3>
+                    <h3 className="text-2xl font-lora">Addo Salon</h3>
                     <div className="flex flex-col text-gold-100">
                         <Link href='/about-us'>
                             Tentang Addo Salon
@@ -23,7 +23,7 @@ export const Footer = () => {
                     </div>
                 </div>
                 <div className="flex flex-col gap-y-5 items-center xl:items-start">
-                    <h3 className="text-2xl">Hubungi Kami</h3>
+                    <h3 className="text-2xl font-lora">Hubungi Kami</h3>
                     <div className="flex flex-col text-gold-100 space-y-3 items-center xl:items-start">
                         {contactInfo.map((item, i) => (
                             <div key={i} className="flex space-x-3 items-start">
@@ -45,8 +45,8 @@ export const Footer = () => {
                 </div>
             </div>
             {/* informasi metode pembayaran */}
-            <div className="flex flex-col gap-y-5 md:border-2 p-5 shadow-lg mt-4">
-                <h3 className="text-2xl text-center">Metode Pembayaran</h3>
+            <div className="flex flex-col gap-y-5 md:border-2 p-5 shadow-lg mt-4 md:border-gray-400">
+                <h3 className="text-2xl text-center font-lora">Metode Pembayaran</h3>
                 <div className="flex flex-wrap gap-3 md:gap-4 items-center justify-center space-x-7">
                     <div className="flex-none w-fit items-center">
                         <Image src='/mandiri-logo.svg' width={70} height={70} alt="Mandiri Virtual Account" priority />

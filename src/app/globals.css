@@ -141,7 +141,7 @@
 *,
 *::before,
 *::after {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
   box-sizing: border-box;
 }
 
@@ -211,4 +211,14 @@
 
 .lucide {
   color: #d4af37;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  -webkit-scrollbar-width: none;
 }

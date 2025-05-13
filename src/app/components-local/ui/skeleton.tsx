@@ -17,3 +17,27 @@ export const ResetPasswordSkeleton = () => {
         </div>
     )
 }
+
+export const ReviewItemSkeleton = () => {
+    return (
+        <div className="flex flex-col min-w-[18rem] sm:min-w-[20rem] md:min-w-[24rem] items-center p-4 justify-between space-y-2 bg-gray-100 rounded-3xl animate-pulse">
+            <div className="h-16 bg-gray-300 w-full rounded" />
+            <div className="w-[75%] h-[1px] bg-black" />
+            <div className="flex w-full items-center space-x-2">
+                <div className="w-12 h-12 rounded-full bg-gray-300" />
+                <div className="flex flex-col space-y-2 w-full">
+                    <div className="w-1/2 h-4 bg-gray-300 rounded" />
+                    <div className="flex space-x-1">
+                        {[...Array(5)].map((_, i) => (
+                            <div key={i} className="w-5 h-5 bg-gray-300 rounded" />
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <div className="w-full flex justify-between px-2">
+                <div className="w-1/3 h-4 bg-gray-300 rounded" />
+                <div className="w-1/4 h-8 bg-gray-300 rounded" />
+            </div>
+        </div>
+    );
+};

@@ -1,70 +1,33 @@
+'use client'
+
+import SectionBanner from "@/app/components-local/ui/home/section-banner";
+import SectionCategory from "@/app/components-local/ui/home/section-category";
+import SectionReview from "@/app/components-local/ui/home/section-review";
+import { useGetRandomReview } from "@/services/reviewService";
+
 const HomePage = () => {
+    const imagesSrc = [
+        { src: '/banner-hero/beauty_addo_salon.jpg', alt: "Layanan Addo Salon" },
+        { src: '/banner-hero/new_shampoo_product.jpeg', alt: "Produk sampo baru yang digunakan" },
+        { src: '/banner-hero/payment_online.jpg', alt: "Pembayaran online melalui website" },
+    ]
+    const categories = [
+        { src: '/category/perawatan-rambut.jpg', href: '/service?category=perawatan-rambut', alt: "Kategori Perawatan Rambut" },
+        { src: '/category/perawatan-wajah.jpg', href: '/service?category=perawatan-wajah', alt: "Kategori Perawatan Wajah" },
+        { src: '/category/make-up.jpg', href: '/service?category=make-up', alt: "Kategori make-up" },
+    ]
+
+    const { data, isLoading } = useGetRandomReview();
+
     return (
-        <div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus eaque veniam quibusdam optio. Optio perferendis quod accusamus temporibus tempora nulla minima voluptatem et similique sunt, quasi id architecto minus vel?</p>
-        </div>
+        <main className="flex flex-col w-full p-12 items-center space-y-10">
+            {/* Banner Hero Section */}
+            <SectionBanner imagesSrc={imagesSrc} />
+            {/* Category Section */}
+            <SectionCategory categories={categories} />
+            {/* Review Section */}
+            <SectionReview reviews={isLoading ? Array(5).fill(null) : data?.data.data} />
+        </main>
     )
 }
 
