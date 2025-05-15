@@ -11,7 +11,7 @@ export const Footer = () => {
     ];
 
     return (
-        <footer className="bottom-0 flex flex-col w-full bg-gray-600 z-50 h-fit px-7 md:px-17 text-gold-500 mt-4 gap-y-2">
+        <footer className="bottom-0 flex flex-col w-full bg-gray-600 z-35 h-fit px-7 md:px-17 text-gold-500 mt-4 gap-y-2">
             {/* informasi terkait addo salon */}
             <div className="flex flex-col space-y-5 md:flex-row justify-between mt-4">
                 <div className="flex flex-col gap-y-5 items-center md:items-start">

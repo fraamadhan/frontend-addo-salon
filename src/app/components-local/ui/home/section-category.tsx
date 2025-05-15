@@ -48,10 +48,10 @@ const SectionCategory = ({ categories }: { categories: { src: string; href: stri
         <section className="w-full flex flex-col justify-center items-center lg:px-8">
             <div className="w-full flex justify-between items-center">
                 <h2 className="font-lora text-lg md:text-2xl font-semibold text-black">Kategori Layanan</h2>
-                <div className="flex items-center lg:space-x-1 cursor-pointer">
+                <Link href='/service?page=1&limit=10' className="flex items-center lg:space-x-1 cursor-pointer">
                     <p className="font-medium text-sm md:text-base">Lihat semua layanan</p>
                     <ChevronRight />
-                </div>
+                </Link>
             </div>
             <div className="relative w-full mt-4">
                 <div className="absolute left-0 top-0 h-full w-10 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />

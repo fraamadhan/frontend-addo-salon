@@ -29,7 +29,7 @@ const MobileHeader = (props: { isLogin: boolean, user: User | null }) => {
                 <NavItems isLogin={props.isLogin} />
             </div>
             <div
-                className={`fixed top-0 left-0 w-full h-full bg-gray-400 z-40 overflow-auto transform transition-transform duration-300 
+                className={`fixed top-0 left-0 w-full h-full bg-gray-400 z-50 overflow-auto transform transition-transform duration-300 
                 ${showMenu ? 'translate-x-0 ease-out' : '-translate-x-full ease-in'}`}
             >
                 <div className="flex justify-end p-4">

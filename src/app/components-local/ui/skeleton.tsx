@@ -41,3 +41,28 @@ export const ReviewItemSkeleton = () => {
         </div>
     );
 };
+
+export const ProductItemSkeleton: React.FC = () => (
+    <div className="animate-pulse bg-white border border-gray-200 rounded-lg p-4">
+        {/* Image placeholder (aspect ratio 221:300) */}
+        <div className="bg-gray-200 rounded-t-lg aspect-[221/300] w-full" />
+
+        {/* Product name placeholder */}
+        <div className="mt-4 h-5 bg-gray-200 rounded w-3/4" />
+
+        {/* Price placeholder */}
+        <div className="mt-2 h-4 bg-gray-200 rounded w-1/2" />
+
+        {/* Rating (icon + text) placeholder */}
+        <div className="mt-3 flex items-center">
+            <div className="bg-gray-200 rounded-full h-4 w-4" />
+            <div className="ml-2 h-4 bg-gray-200 rounded w-8" />
+        </div>
+
+        {/* Estimation (icon + text) placeholder */}
+        <div className="mt-2 flex items-center">
+            <div className="bg-gray-200 rounded-full h-4 w-4" />
+            <div className="ml-2 h-4 bg-gray-200 rounded w-12" />
+        </div>
+    </div>
+);
