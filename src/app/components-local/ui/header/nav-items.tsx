@@ -6,7 +6,7 @@ export const NavItems = (props: { isLogin: boolean }) => {
             <Link href='/home'>
                 Beranda
             </Link>
-            <Link href='/service'>
+            <Link href='/service?page=1&limit=10'>
                 Layanan
             </Link>
             {props.isLogin && <Link href='/cart'>

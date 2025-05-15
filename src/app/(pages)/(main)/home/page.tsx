@@ -12,9 +12,9 @@ const HomePage = () => {
         { src: '/banner-hero/payment_online.jpg', alt: "Pembayaran online melalui website" },
     ]
     const categories = [
-        { src: '/category/perawatan-rambut.jpg', href: '/service?category=perawatan-rambut', alt: "Kategori Perawatan Rambut" },
-        { src: '/category/perawatan-wajah.jpg', href: '/service?category=perawatan-wajah', alt: "Kategori Perawatan Wajah" },
-        { src: '/category/make-up.jpg', href: '/service?category=make-up', alt: "Kategori make-up" },
+        { src: '/category/perawatan-rambut.jpg', href: '/service?page=1&limit=10&category=perawatan-rambut', alt: "Kategori Perawatan Rambut" },
+        { src: '/category/perawatan-wajah.jpg', href: '/service?page=1&limit=10&category=perawatan-wajah', alt: "Kategori Perawatan Wajah" },
+        { src: '/category/make-up.jpg', href: '/service?page=1&limit=10&category=make-up', alt: "Kategori make-up" },
     ]
 
     const { data, isLoading } = useGetRandomReview();

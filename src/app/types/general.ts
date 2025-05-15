@@ -33,3 +33,41 @@ export type ReviewItemProps = {
     assetRef: string;
   };
 };
+
+export type ProductItemProps = {
+  _id: string;
+  assetRef: string;
+  name: string;
+  ratingAverage: number;
+  estimation: number;
+  price: number;
+};
+
+export type CategoryItem = {
+  _id: string;
+  name: string;
+  slug: string;
+  code: number;
+  createdAt?: string;
+  updatedAt?: string;
+  parentId?: string;
+  parentName?: string;
+  parentSlug?: string;
+  parentCode?: number;
+};
+
+export type CategoryGroup = {
+  parent: CategoryItem;
+  children: CategoryItem[];
+};
+
+export type Paginator = {
+  totalItem: number;
+  limit: number;
+  pageCount: number;
+  page: number;
+  hasPrevPage: boolean;
+  hasNextPage: boolean;
+  prevPage: number;
+  nextPage: number;
+};
