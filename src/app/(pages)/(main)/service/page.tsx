@@ -18,6 +18,7 @@ const ProductPage = async ({ searchParams }: { searchParams: Promise<ParamsSearc
         highestPrice: params.highestPrice || "0",
         lowestPrice: params.lowestPrice || "0",
         rating: params.rating || undefined,
+        type: params.type || undefined,
     };
 
 

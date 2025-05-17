@@ -12,9 +12,11 @@ export class ParamsSearchProductDto extends PaginationParams {
   lowestPrice?: string;
   highestPrice?: string;
   rating?: string;
+  type?: string;
 }
 
-export class ParamsReviewDto extends PaginationParams {
+export class ParamsReviewDto {
   rating?: string;
   userId?: string;
+  productId?: string;
 }

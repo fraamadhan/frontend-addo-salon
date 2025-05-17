@@ -3,7 +3,7 @@
 import { CategoryGroup } from "@/app/types/general";
 import { useGetCategories } from "@/services/productService";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import React, { useState } from "react";
 import Button from "../button/button";
 
 const FilterItemMobile = ({ handleResetFilter }: { handleResetFilter: (state: boolean) => void }) => {
@@ -14,6 +14,7 @@ const FilterItemMobile = ({ handleResetFilter }: { handleResetFilter: (state: bo
   const [highestPrice, setHighestPrice] = useState(searchParams.get('highestPrice') || '');
   const [categoryOpt, setCategoryOpt] = useState(searchParams.get('category') || '');
   const [rating, setRating] = useState(searchParams.get('rating') || undefined);
+  const [type, setType] = useState(searchParams.get('type') || undefined)
 
   // response
   const { data, isLoading, isError } = useGetCategories();
@@ -26,6 +27,7 @@ const FilterItemMobile = ({ handleResetFilter }: { handleResetFilter: (state: bo
     currentParams.set('category', categoryOpt);
     currentParams.set('rating', rating || '');
     currentParams.set('page', '1');
+    currentParams.set('type', type || '')
     handleResetFilter(false);
     router.replace(`${pathname}?${currentParams.toString()}`);
   }
@@ -34,6 +36,7 @@ const FilterItemMobile = ({ handleResetFilter }: { handleResetFilter: (state: bo
     currentParams.delete('category');
     currentParams.delete('highestPrice');
     currentParams.delete('lowestPrice');
+    currentParams.delete('type');
     setLowestPrice('');
     setHighestPrice('');
     currentParams.delete('rating');
@@ -42,6 +45,7 @@ const FilterItemMobile = ({ handleResetFilter }: { handleResetFilter: (state: bo
     handleResetFilter(false);
     setCategoryOpt('');
     setRating(undefined);
+    setType(undefined)
     router.replace(`${pathname}?${currentParams.toString()}`);
   }
 
@@ -49,12 +53,16 @@ const FilterItemMobile = ({ handleResetFilter }: { handleResetFilter: (state: bo
     setCategoryOpt(e.target.value);
   }
 
+  const onTypeProductChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setType(e.target.value)
+  }
+
   const onRatingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setRating(e.target.checked ? '4' : undefined);
   }
 
   return (
-    <div className="lg:hidden flex flex-col w-full grow space-y-4 p-4">
+    <div className="lg:hidden flex flex-col w-full grow space-y-4 p-4 h-full">
       {/* Body filter by category */}
       <div className="flex flex-col bg-white-50 border-2 border-gray-100 p-2 space-y-3 rounded-md">
         <div className="flex items-center py-3">
@@ -79,6 +87,35 @@ const FilterItemMobile = ({ handleResetFilter }: { handleResetFilter: (state: bo
               </div>
             ))
           }
+        </div>
+      </div>
+
+      <div className="flex flex-col bg-white-50 border-2 border-gray-100 p-2 space-y-3 rounded-md">
+        <div className="flex items-center py-3">
+          <h4 className="font-lora leading-2 font-semibold">Tipe</h4>
+        </div>
+        <div className="flex flex-col items-center space-y-3">
+          <div className="flex items-center w-full space-x-3">
+            <input type="radio" name="gender" id="female" className="w-5 h-5 accent-gold-500" onChange={onTypeProductChange} value='female'
+              checked={type === 'female'} />
+            <label htmlFor="female">
+              Perempuan
+            </label>
+          </div>
+          <div className="flex items-center w-full space-x-3">
+            <input type="radio" name="gender" id="male" className="w-5 h-5 accent-gold-500" onChange={onTypeProductChange} value='male'
+              checked={type === 'male'} />
+            <label htmlFor="male">
+              Laki-laki
+            </label>
+          </div>
+          <div className="flex items-center w-full space-x-3">
+            <input type="radio" name="gender" id="unisex" className="w-5 h-5 accent-gold-500" onChange={onTypeProductChange} value='unisex'
+              checked={type === 'unisex'} />
+            <label htmlFor="unisex">
+              Unisex
+            </label>
+          </div>
         </div>
       </div>
       {/* Body filter by price range*/}

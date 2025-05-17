@@ -68,7 +68,7 @@ const SectionCategory = ({ categories }: { categories: { src: string; href: stri
                     className="flex flex-row space-x-4 overflow-x-auto px-2 no-scrollbar"
                 >
                     {categories.map((category, index) => (
-                        <Link key={index} href={category.href} className="flex items-stretch flex-shrink-0 p-x-3 w-[13em] sm:w-[16em] md:w-[18em] lg:w-[25em]">
+                        <Link key={index} href={category.href} className="flex items-stretch flex-shrink-0 px-3 w-[13em] sm:w-[16em] md:w-[18em] lg:w-[25em]">
                             <Image
                                 src={category.src}
                                 width={400}

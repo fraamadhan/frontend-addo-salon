@@ -15,6 +15,7 @@ const FilterTab = () => {
     const searchParams = useSearchParams()
     const [lowestPrice, setLowestPrice] = useState(searchParams.get('lowestPrice') || '');
     const [highestPrice, setHighestPrice] = useState(searchParams.get('highestPrice') || '');
+    const [type, setType] = useState(searchParams.get('type') || undefined)
 
     // response
     const { data, isLoading, isError } = useGetCategories();
@@ -47,6 +48,13 @@ const FilterTab = () => {
         router.replace(`${pathname}?${currentParams.toString()}`);
     }, 500)
 
+    const onTypeProductChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        setType(e.target.value)
+        const currentParams = new URLSearchParams(searchParams);
+        currentParams.set('type', e.target.value);
+        router.replace(`${pathname}?${currentParams.toString()}`);
+    }
+
     const handleOnResetFilter = () => {
         const currentParams = new URLSearchParams(searchParams);
         currentParams.delete('category');
@@ -55,6 +63,10 @@ const FilterTab = () => {
         setLowestPrice('');
         setHighestPrice('');
         currentParams.delete('rating');
+        currentParams.set('page', '1')
+        currentParams.set('limit', '10')
+        currentParams.delete('type')
+        setType(undefined)
         router.replace(`${pathname}?${currentParams.toString()}`);
     }
 
@@ -89,6 +101,34 @@ const FilterTab = () => {
                     </div>
                 </Suspense>
             </div >
+            <div className="flex flex-col bg-white-50 border-2 border-gray-100 p-2 space-y-3 rounded-md">
+                <div className="flex items-center py-3">
+                    <h4 className="font-lora leading-2 font-semibold">Tipe</h4>
+                </div>
+                <div className="flex flex-col items-center space-y-3">
+                    <div className="flex items-center w-full space-x-3">
+                        <input type="radio" name="gender-desk" id="female" className="w-5 h-5 accent-gold-500" onChange={onTypeProductChange} value='female'
+                            checked={type === 'female'} />
+                        <label htmlFor="female">
+                            Perempuan
+                        </label>
+                    </div>
+                    <div className="flex items-center w-full space-x-3">
+                        <input type="radio" name="gender-desk" id="male" className="w-5 h-5 accent-gold-500" onChange={onTypeProductChange} value='male'
+                            checked={type === 'male'} />
+                        <label htmlFor="male">
+                            Laki-laki
+                        </label>
+                    </div>
+                    <div className="flex items-center w-full space-x-3">
+                        <input type="radio" name="gender-desk" id="unisex" className="w-5 h-5 accent-gold-500" onChange={onTypeProductChange} value='unisex'
+                            checked={type === 'unisex'} />
+                        <label htmlFor="unisex">
+                            Unisex
+                        </label>
+                    </div>
+                </div>
+            </div>
             {/* Body filter by price range*/}
             <div className="flex flex-col bg-white-50 border-r-2 border-l-2 border-b-2 border-gray-100 p-2 space-y-3" >
                 <div className="flex items-center py-3">

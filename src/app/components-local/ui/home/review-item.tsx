@@ -46,7 +46,7 @@ export const ReviewItem = ({ review }: { review: ReviewItemProps }) => {
                 </div>
                 <div className="flex flex-col sm:flex-row md:flex-row w-full justify-between px-2 items-center space-y-2">
                     <p className="text-sm md:text-base">{review.product.name}</p>
-                    <Link className="p-2 bg-gold-100 rounded-lg w-[8em] text-center" href={`/service/${review.product._id}`}>
+                    <Link className="p-2 bg-gold-100 rounded-lg w-[8em] text-center" href={`/service/${review.product.name}/${review.product._id}`}>
                         Lihat produk
                     </Link>
                 </div>

@@ -85,7 +85,7 @@ const SectionReview = ({ reviews }: { reviews: ReviewItemProps[] }) => {
 
                         reviews.map((review, index) => (
                             review ? (
-                                <div ref={index === 0 ? itemRef : null} key={review._id} className="flex items-stretch flex-shrink-0 p-x-3 w-[13em] sm:w-[16em] md:w-[18em] lg:w-[25em] ">
+                                <div ref={index === 0 ? itemRef : null} key={review._id} className="flex items-stretch flex-shrink-0 px-3 w-[13em] sm:w-[16em] md:w-[18em] lg:w-[25em] ">
                                     <ReviewItem review={review} />
                                 </div>
                             ) : <ReviewItemSkeleton key={index} />

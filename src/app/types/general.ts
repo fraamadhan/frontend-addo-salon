@@ -71,3 +71,16 @@ export type Paginator = {
   prevPage: number;
   nextPage: number;
 };
+
+export type ServiceDetailProps = {
+  _id: string;
+  estimation: number;
+  name: string;
+  description: string;
+  price: number;
+  type: string;
+  ratingAverage: number;
+  ratingCount: number;
+  category: CategoryItem[];
+  assetRef: string;
+};
