@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./styles/app.css"
 import { federo, lora } from "./components-local/fonts";
 import Providers from "./providers";
 

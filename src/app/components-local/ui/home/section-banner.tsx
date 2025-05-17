@@ -22,7 +22,7 @@ const SectionBanner = ({ imagesSrc }: { imagesSrc: { src: string; alt: string }[
         }
     }, [])
     return (
-        <section aria-label="Hero Banner" className="flex-shrink-0 p-x-3 w-[20em] sm:w-[30em] md:w-[33em] lg:w-[36em] flex items-center justify-center">
+        <section aria-label="Hero Banner" className="flex-shrink-0 px-3 w-[20em] sm:w-[30em] md:w-[33em] lg:w-[36em] flex items-center justify-center">
             <Carousel className="w-full"
                 plugins={[autoplay.current]}
                 setApi={(api) => emblaApiRef.current = api}

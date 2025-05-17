@@ -24,6 +24,18 @@ export const useGetProducts = (queryParams: ParamsSearchProductDto) => {
         },
       });
 
+      console.log(response.data);
+      return response.data;
+    },
+  });
+};
+
+export const useGetProduct = (id: string) => {
+  return useQuery({
+    queryKey: ["getProduct", id],
+    queryFn: async () => {
+      const response = await axiosInstance.get(`${GET_PRODUCTS_ENDPOINT}/${id}`);
+
       return response.data;
     },
   });

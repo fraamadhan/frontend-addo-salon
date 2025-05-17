@@ -13,7 +13,7 @@ const FilterTabMobile = () => {
 
     return (
         <div className={`
-        flex flex-col w-full lg:hidden fixed bottom-0 left-0 h-[85%] bg-white z-50 
+        flex flex-col w-full lg:hidden fixed bottom-0 left-0 h-[88%] md:h-[88%] bg-white z-50 
         transform transition-all duration-300 ease-in-out
         ${showFilterTab ? 'translate-x-0' : '-translate-x-full'}
       `}>

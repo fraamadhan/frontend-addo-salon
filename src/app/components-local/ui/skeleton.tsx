@@ -66,3 +66,68 @@ export const ProductItemSkeleton: React.FC = () => (
         </div>
     </div>
 );
+
+export const ServiceDetailSkeleton = () => (
+    <div className="flex items-center flex-col lg:flex-row gap-y-7 lg:gap-y-0 justify-center lg:justify-start animate-pulse gap-x-10">
+        <div className="bg-gray-200 rounded w-[320px] h-[350px]" />
+        <div className="flex flex-col gap-y-3 flex-1 animate-pulse">
+            <div className="h-6 bg-gray-200 rounded w-2/3" />
+            <div className="h-7 bg-gray-300 rounded w-1/3" />
+            <div className="flex gap-x-2">
+                <div className="h-5 bg-gray-200 rounded w-20" />
+            </div>
+            <hr className="w-full border-1" />
+            <div className="flex flex-col gap-y-2">
+                <div className="flex flex-col gap-y-2">
+                    <div className="h-4 bg-gray-200 rounded w-24" />
+                    <div className="h-8 bg-gray-100 rounded w-48" />
+                </div>
+                <div className="p-2 bg-gray-100 rounded-md">
+                    <div className="h-4 bg-gray-200 rounded w-40 mb-1" />
+                    <div className="h-4 bg-gray-200 rounded w-32" />
+                </div>
+            </div>
+            <div className="w-full mt-4">
+                <div className="h-10 bg-gray-300 rounded w-full" />
+            </div>
+        </div>
+    </div>
+)
+
+export const ReviewSectionSkeleton = () => {
+    return (
+        <section className="w-[42rem] flex gap-x-7 py-7 px-1 animate-pulse">
+
+            <div className="flex flex-col gap-y-3 items-center justify-center">
+                {/* Rating number */}
+                <div className="flex items-end justify-center gap-y-1">
+                    <div className="h-10 w-16 bg-gray-300 rounded-md" />
+                    <div className="h-4 w-8 bg-gray-300 rounded ml-2" /> 
+                </div>
+
+                <div className="flex w-[5em] sm:w-[9em] md:w-[12em] h-8 space-x-1 justify-center">
+                    {[...Array(5)].map((_, i) => (
+                        <div key={i} className="h-8 w-8 bg-gray-300 rounded" />
+                    ))}
+                </div>
+
+                <div className="flex items-center justify-center">
+                    <div className="h-4 w-20 bg-gray-300 rounded" />
+                </div>
+            </div>
+
+            <div className="flex flex-col gap-y-2 flex-grow">
+                {[...Array(5)].map((_, index) => (
+                    <div key={index} className="flex items-center gap-x-1">
+                        <div className="h-4 w-3 bg-gray-300 rounded" />
+                        <div className="h-3 w-3 bg-gray-300 rounded" />
+                        <div className="w-[12rem] bg-gray-200 rounded-full h-2 overflow-hidden">
+                            <div className="bg-gray-400 rounded-full h-2 w-1/2" />
+                        </div>
+                        <div className="h-4 w-6 bg-gray-300 rounded" />
+                    </div>
+                ))}
+            </div>
+        </section>
+    );
+};
