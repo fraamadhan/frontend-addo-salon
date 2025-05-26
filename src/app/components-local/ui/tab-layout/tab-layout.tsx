@@ -4,6 +4,7 @@ import { useState } from "react";
 import Button from "../button/button";
 import ReviewSection from "../review/review-section";
 import { ServiceDetailProps } from "@/app/types/general";
+import SectionServiceSchedule from "../product/section-service-schedule";
 
 export const TabLayout = ({ product }: { product: ServiceDetailProps }) => {
     const [activeTab, setActiveTab] = useState("description");
@@ -34,6 +35,11 @@ export const TabLayout = ({ product }: { product: ServiceDetailProps }) => {
             {
                 activeTab === "review" && (
                     <ReviewSection />
+                )
+            }
+            {
+                activeTab === 'schedule' && (
+                    <SectionServiceSchedule />
                 )
             }
         </div>

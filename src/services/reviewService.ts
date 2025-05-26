@@ -12,11 +12,11 @@ export const useGetRandomReview = () => {
   });
 };
 
-export const useGetReviews = (userId: string, productId: string, page: number) => {
+export const useGetReviews = (productId: string, page: number) => {
   return useQuery({
-    queryKey: ["getReviews", userId, productId, page],
+    queryKey: ["getReviews", productId, page],
     queryFn: async () => {
-      const response = await axiosInstance.get(`${GET_REVIEWS_ENDPOINT}?userId=${userId}&productId=${productId}&page=${page}`);
+      const response = await axiosInstance.get(`${GET_REVIEWS_ENDPOINT}?productId=${productId}&page=${page}`);
 
       return response.data;
     },

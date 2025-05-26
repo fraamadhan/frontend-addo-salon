@@ -5,7 +5,6 @@ import ReviewList from "./review-list";
 import { useEffect, useRef, useState } from "react";
 import { useGetReviews } from "@/services/reviewService";
 import { useParams } from "next/navigation";
-import { getUserIdFromToken } from "@/lib/token";
 import { ReviewSectionSkeleton } from "../skeleton";
 
 const ReviewSection = () => {
@@ -15,13 +14,12 @@ const ReviewSection = () => {
 
 
     const params = useParams<{ name: string; id: string }>();
-    const userId = getUserIdFromToken();
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
     }
 
-    const { data, isLoading, isError } = useGetReviews(userId!, params.id, currentPage); //params.id here is productId
+    const { data, isLoading, isError } = useGetReviews(params.id, currentPage); //params.id here is productId
 
     const reviews = data?.data?.reviews || [];
     const paginator = data?.data?.paginator || null;
@@ -51,7 +49,7 @@ const ReviewSection = () => {
     }, [paginator?.page])
 
     return (
-        <div ref={reviewListRef} className="w-full flex flex-col gap-y-3">
+        <div ref={reviewListRef} className="w-full flex flex-col gap-y-3 scroll-mt-50">
             {
                 !isError && isLoading ? (<ReviewSectionSkeleton />) :
                     <>

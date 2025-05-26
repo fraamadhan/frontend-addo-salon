@@ -11,3 +11,7 @@ export const GET_REVIEWS_ENDPOINT = process.env.NEXT_PUBLIC_GET_REVIEWS;
 
 export const GET_CATEGORIES_ENDPOINT = process.env.NEXT_PUBLIC_GET_CATEGORIES;
 export const GET_PRODUCTS_ENDPOINT = process.env.NEXT_PUBLIC_GET_PRODUCTS;
+
+export const GET_CARTS_ENDPOINT = process.env.NEXT_PUBLIC_GET_CARTS;
+
+export const GET_SCHEDULES = process.env.NEXT_PUBLIC_GET_SCHEDULES;

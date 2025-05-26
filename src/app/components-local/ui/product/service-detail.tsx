@@ -2,12 +2,66 @@
 
 import Image from "next/image";
 import Button from "../button/button";
-import { PlusIcon } from "lucide-react";
+import { LoaderCircleIcon, PlusIcon } from "lucide-react";
 import { ServiceDetailSkeleton } from "../skeleton";
 import { rupiahFormatter } from "@/lib/rupiah-formatter";
 import { CategoryItem, ServiceDetailProps } from "@/app/types/general";
+import { useRef } from "react";
+import { toast } from "sonner";
+import { useAddToCart } from "@/services/cartService";
+import { getAccessToken } from "@/lib/token";
+import { useRouter } from "next/navigation";
 
 const ServiceDetail = ({ product, isLoading, isError }: { product: ServiceDetailProps, isLoading: boolean, isError: boolean }) => {
+
+    const router = useRouter();
+    const reservationDateRef = useRef<HTMLInputElement>(null);
+    const handleAddToCart = async () => {
+        const token = getAccessToken();
+        if (!token) {
+            toast.error("Silakan login terlebih dahulu");
+            return;
+        }
+        const reservationDate = reservationDateRef?.current?.value;
+        if (!reservationDate) {
+            toast.error("Silakan pilih jadwal terlebih dahulu");
+            return;
+        }
+        const body = {
+            token,
+            productId: product._id,
+            reservationDate: new Date(reservationDate).toISOString(),
+            estimation: product.estimation,
+        }
+
+        mutation.mutate(body);
+
+        reservationDateRef.current!.value = "";
+    }
+
+    const mutation = useAddToCart({
+        onSuccess: (data: any) => {
+            if (data.status !== 201 || data.statusCode === 400) {
+                toast.error(data.message || data.message[0])
+            }
+            else {
+                toast.success("Berhasil menambahkan ke keranjang", {
+                    action: {
+                        label: "Lihat keranjang",
+                        onClick: () => {
+                            router.push("/cart");
+                            reservationDateRef.current!.value = "";
+                        }
+                    }
+                });
+            }
+        },
+        onError: (error: any) => {
+            console.error(error);
+            const errorMsg = error.message.split(',');
+            toast.error(errorMsg[0] || "Terjadi kesalahan saat menambahkan ke keranjang");
+        }
+    })
 
     return (
         <section className="flex flex-col gap-y-3 lg:flex-row gap-x-10 justify-center items-center">
@@ -48,7 +102,7 @@ const ServiceDetail = ({ product, isLoading, isError }: { product: ServiceDetail
                                 <div className="flex gap-x-2 text-sm w-full">
                                     {
                                         product?.category?.map((value: CategoryItem) => (
-                                            <div key={value._id} className="bg-gray-100 p-2 rounded-sm"> Haircut</div>
+                                            <div key={value._id} className="bg-gray-100 p-2 rounded-sm">{value.name}</div>
                                         ))
                                     }
                                 </div>
@@ -57,7 +111,7 @@ const ServiceDetail = ({ product, isLoading, isError }: { product: ServiceDetail
                                     <div className="flex flex-col gap-y-2">
                                         {/* TODO integrate the add to cart feature */}
                                         <label htmlFor="schedule">Pilih jadwal</label>
-                                        <input type="datetime-local" name="schedule" id="schedule" className="max-w-[12rem] border p-1 bg-white rounded-md" />
+                                        <input type="datetime-local" ref={reservationDateRef} name="schedule" id="schedule" className="max-w-[12rem] border p-1 bg-white rounded-md" />
                                     </div>
                                     <div className="p-2 bg-warning-200 rounded-md">
                                         <p className="font-light w-fit lg:w-[15rem]">Untuk memilih jadwal dapat melihat jadwal pesanan di bawah agar tidak terjadi bentrok. Perhatikan estimasi waktu di hari kamu memesan</p>
@@ -65,10 +119,21 @@ const ServiceDetail = ({ product, isLoading, isError }: { product: ServiceDetail
                                 </div>
                                 {/* add to cart button */}
                                 <div className="w-full mt-4">
-                                    <Button className="flex w-full items-center justify-center gap-x-1 border-2 p-2 cursor-pointer border-gold-500 bg-gold-500 text-white hover:bg-gold-600 rounded-md  ">
-                                        <PlusIcon stroke="#ffffff" className="w-5 h-5" />
-                                        <span className="leading-none">Keranjang</span>
-                                    </Button>
+                                    {
+                                        mutation.isPending ? (
+                                            <Button
+                                                className="w-full flex items-center justify-center border-1 border-gold-500 bg-transparent p-2 rounded-md"
+                                                disabled={mutation.isPending}
+                                            >
+                                                <LoaderCircleIcon className="w-5 h-5 animate-spin text-center" />
+                                            </Button>
+                                        ) : (
+                                            <Button className="flex w-full items-center justify-center gap-x-1 border-2 p-2 cursor-pointer border-gold-500 bg-gold-500 text-white hover:bg-gold-600 rounded-md" onClick={handleAddToCart}>
+                                                <PlusIcon stroke="#ffffff" className="w-5 h-5" />
+                                                <span className="leading-none">Keranjang</span>
+                                            </Button>
+                                        )
+                                    }
                                 </div>
                             </div>
                         </>

@@ -1,0 +1,102 @@
+import { CartResponse } from "@/app/types/cart-response";
+
+export const dummyCarts: CartResponse[] = [
+  {
+    _id: "cart1",
+    reservationDate: "2025-06-01T00:00:00Z",
+    price: 150000,
+    userId: "user001",
+    product: {
+      _id: "prod001",
+      estimation: 1, // 1 hour
+      name: "Pixie Cut ",
+    },
+    createdAt: "2025-05-20T10:00:00Z",
+    updatedAt: "2025-05-21T10:00:00Z",
+    assetRef: "/assets/products/haircut1.jpg",
+  },
+  {
+    _id: "cart2",
+    reservationDate: "2025-06-02T09:30:00Z",
+    price: 200000,
+    userId: "user002",
+    product: {
+      _id: "prod002",
+      estimation: 1.5,
+      name: "Ombre hair",
+    },
+    createdAt: "2025-05-20T11:00:00Z",
+    updatedAt: "2025-05-21T11:00:00Z",
+    assetRef: "/assets/products/massage1.jpg",
+  },
+  {
+    _id: "cart3",
+    reservationDate: "2025-06-03T11:00:00Z",
+    price: 120000,
+    userId: "user003",
+    product: {
+      _id: "prod003",
+      estimation: 0.5,
+      name: "Bujanginam",
+    },
+    createdAt: "2025-05-20T12:00:00Z",
+    updatedAt: "2025-05-21T12:00:00Z",
+    assetRef: "/assets/products/spa1.jpg",
+  },
+  {
+    _id: "cart4",
+    reservationDate: "2025-06-04T13:45:00Z",
+    price: 180000,
+    userId: "user004",
+    product: {
+      _id: "prod004",
+      estimation: 2,
+      name: "Buzz cut men with low fade",
+    },
+    createdAt: "2025-05-20T13:00:00Z",
+    updatedAt: "2025-05-21T13:00:00Z",
+    assetRef: "/assets/products/facial1.jpg",
+  },
+  {
+    _id: "cart5",
+    reservationDate: "2025-06-05T15:00:00Z",
+    price: 175000,
+    userId: "user005",
+    product: {
+      _id: "prod005",
+      estimation: 1.25,
+      name: "Bujur onta",
+    },
+    createdAt: "2025-05-20T14:00:00Z",
+    updatedAt: "2025-05-21T14:00:00Z",
+    assetRef: "/assets/products/haircolor1.jpg",
+  },
+  {
+    _id: "cart6",
+    reservationDate: "2025-06-06T10:30:00Z",
+    price: 220000,
+    userId: "user006",
+    product: {
+      _id: "prod006",
+      estimation: 2.5,
+      name: "Undercut n Old School style",
+    },
+    createdAt: "2025-05-20T15:00:00Z",
+    updatedAt: "2025-05-21T15:00:00Z",
+    assetRef: "/assets/products/mani1.jpg",
+  },
+  {
+    _id: "cart7",
+    reservationDate: "2025-06-07T08:00:00Z",
+    price: 140000,
+    userId: "user007",
+    product: {
+      _id: "prod007",
+      estimation: 0.75,
+      name: "Deep mohawk with blue color",
+    },
+    createdAt: "2025-05-20T16:00:00Z",
+    updatedAt: "2025-05-21T16:00:00Z",
+    assetRef: "/assets/products/pedi1.jpg",
+  },
+];

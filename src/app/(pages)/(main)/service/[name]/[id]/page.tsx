@@ -13,7 +13,7 @@ const ServiceDetailPage = () => {
     const product = data?.data;
 
     return (
-        <main className="w-full flex flex-col gap-y-4 px-10 md:px-50 py-9 justify-center lg:justify-start">
+        <main className="w-full flex flex-col gap-y-4 px-10 md:px-25 py-9 justify-center lg:justify-start">
             {/* product information */}
             <ServiceDetail product={product} isLoading={isLoading} isError={isError} />
 

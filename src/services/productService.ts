@@ -1,6 +1,6 @@
 import { ParamsSearchProductDto } from "@/app/types/query-params";
 import { axiosInstance } from "@/lib/axios";
-import { GET_CATEGORIES_ENDPOINT, GET_PRODUCTS_ENDPOINT } from "@/lib/endpoints";
+import { GET_CATEGORIES_ENDPOINT, GET_PRODUCTS_ENDPOINT, GET_SCHEDULES } from "@/lib/endpoints";
 import { useQuery } from "@tanstack/react-query";
 
 export const useGetCategories = () => {
@@ -35,6 +35,17 @@ export const useGetProduct = (id: string) => {
     queryKey: ["getProduct", id],
     queryFn: async () => {
       const response = await axiosInstance.get(`${GET_PRODUCTS_ENDPOINT}/${id}`);
+
+      return response.data;
+    },
+  });
+};
+
+export const useGetSchedule = (page: number, startDate: string | Date, endDate: string | Date) => {
+  return useQuery({
+    queryKey: ["getSchedule", page, startDate, endDate],
+    queryFn: async () => {
+      const response = await axiosInstance.get(`${GET_SCHEDULES}?page=${page}&startDate=${startDate}&endDate=${endDate}`);
 
       return response.data;
     },

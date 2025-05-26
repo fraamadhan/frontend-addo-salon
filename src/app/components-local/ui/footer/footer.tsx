@@ -10,6 +10,16 @@ export const Footer = () => {
         { icon: <Phone />, text: '+62 895-6392-04727', type: 'tel', href: 'https://wa.me/+62895639204727' },
     ];
 
+    const paymentMethods = [
+        { src: '/mandiri-logo.svg', alt: 'Mandiri Virtual Account' },
+        { src: '/bca-logo.svg', alt: 'BCA Virtual Account' },
+        { src: '/qris-logo.svg', alt: 'Pembayaran QR' },
+        { src: '/permata-bank.png', alt: 'Permata Bank Virtual Account' },
+        { src: '/bri-logo.svg', alt: 'BRI Virtual Account' },
+        { src: '/bni-logo.svg', alt: 'BNI Virtual Account' },
+        { src: '/gopay.png', alt: 'GoPay ' }
+    ]
+
     return (
         <footer className="bottom-0 flex flex-col w-full bg-gray-600 z-35 h-fit px-7 md:px-17 text-gold-500 mt-4 gap-y-2">
             {/* informasi terkait addo salon */}
@@ -45,18 +55,16 @@ export const Footer = () => {
                 </div>
             </div>
             {/* informasi metode pembayaran */}
-            <div className="flex flex-col gap-y-5 md:border-2 p-5 shadow-lg mt-4 md:border-gray-400">
+            <div className="flex flex-col gap-y-5 md:border-2 p-5 shadow-lg mt-4 md:border-gray-400 rounded-lg">
                 <h3 className="text-2xl text-center font-lora">Metode Pembayaran</h3>
                 <div className="flex flex-wrap gap-3 md:gap-4 items-center justify-center space-x-7">
-                    <div className="flex-none w-fit items-center">
-                        <Image src='/mandiri-logo.svg' width={70} height={70} alt="Mandiri Virtual Account" priority />
-                    </div>
-                    <div className="flex-none w-fit items-center">
-                        <Image src='/bca-logo.svg' width={70} height={70} alt="BCA Virtual Account" priority />
-                    </div>
-                    <div className="flex-none w-fit items-center">
-                        <Image src='/qris-logo.svg' width={70} height={70} alt="Pembayaran QR" priority />
-                    </div>
+                    {
+                        paymentMethods.map((method, i) => (
+                            <div className="flex-none w-fit items-center hover:bg-gold-500 p-2" key={i}>
+                                <Image src={method.src} width={70} height={70} alt={method.alt} priority />
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
             {/* copyright */}

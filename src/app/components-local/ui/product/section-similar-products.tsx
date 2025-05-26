@@ -20,8 +20,6 @@ const SectionSimilarProducts = ({ slug }: { slug: string }) => {
 
     const products = useMemo(() => data?.data?.products || [], [data]);
 
-    console.log(products)
-
     const updateScrollButtons = () => {
         const temp = scrollRef.current;
         if (!temp) return;

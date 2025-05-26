@@ -21,8 +21,8 @@ const DropdownItem = (props: { user: User | null }) => {
         <div className="flex flex-col w-full overflow-hidden p-3 text-gold-500 gap-y-3">
             {/* profile */}
             <div className="flex items-center justify-between space-x-7">
-                <ProfileIcon name={props.user?.name} image={props.user?.asset?.publicUrl} />
-                <Button className="bg-gold-500 text-base p-2 rounded-xl text-white cursor-pointer">Lihat Profil</Button>
+                <ProfileIcon name={props.user?.name} image={props.user?.asset?.publicUrl ?? "/si.jpeg"} />
+                <Button className="bg-gold-500 text-sm p-2 rounded-xl text-white cursor-pointer">Lihat Profil</Button>
             </div>
 
             {/* Pembayaran */}
