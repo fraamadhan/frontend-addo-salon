@@ -1,3 +1,8 @@
+export type StateStatus = {
+  onSuccess?: (value: any) => void;
+  onError?: (error: any) => void;
+};
+
 export type User = {
   _id: string;
   name: string;
@@ -70,6 +75,8 @@ export type Paginator = {
   hasNextPage: boolean;
   prevPage: number;
   nextPage: number;
+  prev: number;
+  next: number;
 };
 
 export type ServiceDetailProps = {

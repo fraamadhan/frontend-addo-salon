@@ -75,22 +75,30 @@ export const Pagination = (
                 }
             </div>
             <div className="lg:hidden flex items-center justify-evenly w-full space-x-3">
-                <div className="w-[50%]">
-                    <Button
-                        disabled={!paginator?.hasPrevPage}
-                        className={`${!paginator?.hasPrevPage ? 'opacity-50' : 'opacity-100'} bg-white-500 text-gold-500 rounded-lg p-1 font-semibold border-gold-500 border-1 w-full flex items-center justify-center`}
-                        onClick={() => handlePageChange(currentPage - 1)}>
-                        Sebelumnya
-                    </Button>
-                </div>
-                <div className="w-[50%]">
-                    <Button
-                        disabled={!paginator?.hasNextPage}
-                        className={`${!paginator?.hasNextPage ? 'opacity-50' : 'opacity-100'} bg-white-500 text-gold-500 rounded-lg p-1 font-semibold border-gold-500 border-1 w-full flex items-center justify-center`}
-                        onClick={() => handlePageChange(currentPage + 1)} >
-                        Selanjutnya
-                    </Button>
-                </div>
+                {
+                    currentPage > 1 && (
+                        <div className="w-[50%]">
+                            <Button
+                                disabled={!paginator?.hasPrevPage}
+                                className={`${!paginator?.hasPrevPage ? 'opacity-50' : 'opacity-100'} bg-white-500 text-gold-500 rounded-lg p-1 font-semibold border-gold-500 border-1 w-full flex items-center justify-center`}
+                                onClick={() => handlePageChange(currentPage - 1)}>
+                                Sebelumnya
+                            </Button>
+                        </div>
+                    )
+                }
+                {
+                    currentPage < totalPage && (
+                        <div className="w-[50%]">
+                            <Button
+                                disabled={!paginator?.hasNextPage}
+                                className={`${!paginator?.hasNextPage ? 'opacity-50' : 'opacity-100'} bg-white-500 text-gold-500 rounded-lg p-1 font-semibold border-gold-500 border-1 w-full flex items-center justify-center`}
+                                onClick={() => handlePageChange(currentPage + 1)}>
+                                Selanjutnya
+                            </Button>
+                        </div>
+                    )
+                }
             </div>
         </section >
     )

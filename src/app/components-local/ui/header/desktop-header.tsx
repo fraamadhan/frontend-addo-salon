@@ -14,11 +14,11 @@ const DesktopHeader = (props: { isLogin: boolean, user: User | null }) => {
     const onMouseLeave = useCallback(() => setShowDropdown(false), []);
 
     const authButtonOrProfile = !props.isLogin ? (<AuthButton />) : (<div
-        className="relative flex items-center"
+        className="relative flex items-center p-10 lg:p-0"
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
     >
-        <ProfileIcon name={props.user?.name} image={props.user?.asset.publicUrl} />
+        <ProfileIcon name={props.user?.name} image={props.user?.asset?.publicUrl ?? "/si.jpeg"} />
         {showDropdown && (
             <div className="absolute top-full -right-17"
                 onMouseEnter={() => setShowDropdown(true)}

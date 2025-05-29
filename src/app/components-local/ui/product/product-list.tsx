@@ -30,7 +30,6 @@ const ProductList = ({ searchParams }: { searchParams: ParamsSearchProductDto })
     }, [paginator]);
 
     const handlePageChange = (page: number) => {
-        console.log('page', page);
         const currentParams = new URLSearchParams(params);
         currentParams.set('page', String(page));
         setCurrentPage(page);

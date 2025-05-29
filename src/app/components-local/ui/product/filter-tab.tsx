@@ -62,6 +62,7 @@ const FilterTab = () => {
         currentParams.delete('lowestPrice');
         setLowestPrice('');
         setHighestPrice('');
+        currentParams.delete('keyword');
         currentParams.delete('rating');
         currentParams.set('page', '1')
         currentParams.set('limit', '10')

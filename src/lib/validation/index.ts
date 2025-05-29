@@ -78,3 +78,37 @@ export const ResetPasswordSchema = z
     message: "Kata sandi tidak cocok",
     path: ["confirmPassword"],
   });
+
+export const ProfileResetPasswordSchema = z
+  .object({
+    oldPassword: z
+      .string({
+        required_error: "Kata sandi lama tidak boleh kosong",
+        invalid_type_error: "Panjang kata sandi lama minimal 8 karakter",
+      })
+      .min(8, {
+        message: "Panjang kata sandi lama minimal 8 karakter",
+      })
+      .refine((password) => /((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/.test(password), { message: "Kata sandi terlalu lemah" }),
+    password: z
+      .string({
+        required_error: "Kata sandi tidak boleh kosong",
+        invalid_type_error: "Panjang kata sandi minimal 8 karakter",
+      })
+      .min(8, {
+        message: "Panjang kata sandi minimal 8 karakter",
+      })
+      .refine((password) => /((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/.test(password), { message: "Kata sandi terlalu lemah" }),
+    confirmPassword: z
+      .string({
+        required_error: "Kata sandi tidak boleh kosong",
+        invalid_type_error: "Panjang kata sandi minimal 8 karakter",
+      })
+      .min(8, {
+        message: "Panjang kata sandi minimal 8 karakter",
+      }),
+  })
+  .refine((data) => data.password === data.confirmPassword, {
+    message: "Kata sandi tidak cocok",
+    path: ["confirmPassword"],
+  });

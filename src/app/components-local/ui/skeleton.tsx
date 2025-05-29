@@ -102,7 +102,7 @@ export const ReviewSectionSkeleton = () => {
                 {/* Rating number */}
                 <div className="flex items-end justify-center gap-y-1">
                     <div className="h-10 w-16 bg-gray-300 rounded-md" />
-                    <div className="h-4 w-8 bg-gray-300 rounded ml-2" /> 
+                    <div className="h-4 w-8 bg-gray-300 rounded ml-2" />
                 </div>
 
                 <div className="flex w-[5em] sm:w-[9em] md:w-[12em] h-8 space-x-1 justify-center">
@@ -131,3 +131,91 @@ export const ReviewSectionSkeleton = () => {
         </section>
     );
 };
+
+export const CartItemSkeleton = () => {
+    return (
+        <article className="flex flex-col gap-4 w-full p-4 border-b-4 animate-pulse">
+            <div className="flex items-center gap-x-3 w-full">
+                <div className="w-4 h-4 bg-gray-300 rounded" />
+                <div className="w-[80px] h-[80px] bg-gray-300 rounded-md" />
+                <div className="flex flex-col gap-y-2 w-full">
+                    <div className="w-2/3 h-4 bg-gray-300 rounded" />
+                    <div className="w-1/3 h-4 bg-gray-300 rounded" />
+                    <div className="w-1/2 h-3 bg-gray-200 rounded" />
+                </div>
+            </div>
+            <div className="flex flex-col sm:flex-row justify-between items-stretch gap-y-7 w-full p-2">
+                <div className="w-full md:w-3/4 h-10 bg-gray-300 rounded" />
+                <div className="w-6 h-6 bg-gray-300 rounded ml-3" />
+            </div>
+        </article>
+    );
+};
+
+export const CartListSkeleton = () => {
+    return (
+        <div className="w-full flex flex-col gap-6">
+            <CartItemSkeleton />
+            <CartItemSkeleton />
+            <CartItemSkeleton />
+        </div>
+    );
+};
+
+export const ProfileFormSkeleton = () => {
+    return (
+        <div className="animate-pulse space-y-6 w-full">
+            {/* Profile Image */}
+            <div className="flex flex-col items-center justify-center w-full gap-y-4">
+                <div className="w-48 h-48 rounded-full bg-gray-300" />
+                <div className="w-[8rem] h-10 bg-gray-300 rounded-md" />
+            </div>
+
+            {/* General Information */}
+            <div className="flex flex-col w-full gap-y-4">
+                {/* Name */}
+                <div className="flex items-center gap-x-3">
+                    <div className="w-[6rem] h-5 bg-gray-300 rounded-md" />
+                    <div className="w-[18rem] h-10 bg-gray-300 rounded-md" />
+                </div>
+
+                {/* Email */}
+                <div className="flex items-center gap-x-3">
+                    <div className="w-[6rem] h-5 bg-gray-300 rounded-md" />
+                    <div className="w-[18rem] h-10 bg-gray-300 rounded-md" />
+                </div>
+
+                {/* Phone Number */}
+                <div className="flex items-center gap-x-3">
+                    <div className="w-[6rem] h-5 bg-gray-300 rounded-md" />
+                    <div className="w-[18rem] h-10 bg-gray-300 rounded-md" />
+                </div>
+
+                {/* Gender */}
+                <div className="flex items-center gap-x-3">
+                    <div className="w-[6rem] h-5 bg-gray-300 rounded-md" />
+                    <div className="w-[18rem] h-10 bg-gray-300 rounded-md" />
+                </div>
+
+                {/* Birth Date */}
+                <div className="flex items-center gap-x-3">
+                    <div className="w-[6rem] h-5 bg-gray-300 rounded-md" />
+                    <div className="w-[18rem] h-10 bg-gray-300 rounded-md" />
+                </div>
+
+                {/* Address */}
+                <div className="flex items-start gap-x-3">
+                    <div className="w-[6rem] h-20 bg-gray-300 rounded-md" />
+                    <div className="w-[18rem] h-[6rem] bg-gray-300 rounded-md" />
+                </div>
+            </div>
+
+            {/* Buttons */}
+            <div className="w-full flex justify-center md:justify-end items-center gap-x-3">
+                <div className="w-[8rem] h-10 bg-gray-300 rounded-md" />
+                <div className="w-[8rem] h-10 bg-gray-300 rounded-md" />
+            </div>
+        </div>
+    );
+};
+

@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export const NavItems = (props: { isLogin: boolean }) => {
     return (
-        <nav className="flex text-xl text-gold-500 items-center justify-evenly gap-x-10">
+        <nav className="flex text-base sm:text-xl text-gold-500 items-center justify-evenly gap-x-10">
             <Link href='/home'>
                 Beranda
             </Link>

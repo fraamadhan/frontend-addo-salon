@@ -7,9 +7,9 @@ const ProfileIcon = (props: { name?: string, image?: string }) => {
     const handleImageError = () => setImgSrc('/si.jpeg');
     return (
         <div className="flex items-center justify-between h-full space-x-3 z-100">
-            <Image src={props.image || imgSrc} width={48} height={48} alt="profile picture" className="rounded-full aspect-square object-cover" quality={100} onError={handleImageError} />
-            <div className="flex flex-col items-center justify-center">
-                <p className="text-base text-gold-500">{props.name}</p>
+            <Image src={props.image || imgSrc || '/si.jpeg'} width={48} height={48} alt="profile picture" className="rounded-full aspect-square object-cover" quality={100} onError={handleImageError} />
+            <div className="flex flex-col items-start justify-center">
+                <p className="text-sm text-gold-500 truncate">{props.name}</p>
                 <p className="text-sm text-gold-100">Pembeli</p>
             </div>
         </div>
