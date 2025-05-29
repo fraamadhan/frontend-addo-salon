@@ -11,10 +11,12 @@ import { toast } from "sonner";
 import { useAddToCart } from "@/services/cartService";
 import { getAccessToken } from "@/lib/token";
 import { useRouter } from "next/navigation";
+import { useQueryClient } from "@tanstack/react-query";
 
 const ServiceDetail = ({ product, isLoading, isError }: { product: ServiceDetailProps, isLoading: boolean, isError: boolean }) => {
 
     const router = useRouter();
+    const queryClient = useQueryClient();
     const reservationDateRef = useRef<HTMLInputElement>(null);
     const handleAddToCart = async () => {
         const token = getAccessToken();
@@ -39,8 +41,17 @@ const ServiceDetail = ({ product, isLoading, isError }: { product: ServiceDetail
         reservationDateRef.current!.value = "";
     }
 
+    const handleDateTimeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const selected = new Date(e.target.value);
+        const hour = selected.getHours();
+
+        if (hour < 7 || hour > 18) {
+            toast.warning("Salon belum buka. Silakan pilih jadwal antara jam 07:00 - 18:00")
+            e.target.value = ""
+        }
+    }
     const mutation = useAddToCart({
-        onSuccess: (data: any) => {
+        onSuccess: (data) => {
             if (data.status !== 201 || data.statusCode === 400) {
                 toast.error(data.message || data.message[0])
             }
@@ -54,9 +65,10 @@ const ServiceDetail = ({ product, isLoading, isError }: { product: ServiceDetail
                         }
                     }
                 });
+                queryClient.invalidateQueries({ queryKey: ['getCarts'] });
             }
         },
-        onError: (error: any) => {
+        onError: (error) => {
             console.error(error);
             const errorMsg = error.message.split(',');
             toast.error(errorMsg[0] || "Terjadi kesalahan saat menambahkan ke keranjang");
@@ -84,6 +96,7 @@ const ServiceDetail = ({ product, isLoading, isError }: { product: ServiceDetail
                                     alt="Contoh gambar layanan jasa Addo Salon"
                                     width={320}
                                     height={350}
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                     className="w-full h-full object-cover rounded"
                                     priority
                                 />
@@ -108,13 +121,12 @@ const ServiceDetail = ({ product, isLoading, isError }: { product: ServiceDetail
                                 </div>
                                 <hr className="w-full border-1" />
                                 <div className="flex flex-col gap-y-2">
-                                    <div className="flex flex-col gap-y-2">
-                                        {/* TODO integrate the add to cart feature */}
-                                        <label htmlFor="schedule">Pilih jadwal</label>
-                                        <input type="datetime-local" ref={reservationDateRef} name="schedule" id="schedule" className="max-w-[12rem] border p-1 bg-white rounded-md" />
-                                    </div>
                                     <div className="p-2 bg-warning-200 rounded-md">
                                         <p className="font-light w-fit lg:w-[15rem]">Untuk memilih jadwal dapat melihat jadwal pesanan di bawah agar tidak terjadi bentrok. Perhatikan estimasi waktu di hari kamu memesan</p>
+                                    </div>
+                                    <div className="flex flex-col gap-y-2">
+                                        <label htmlFor="schedule">Pilih jadwal</label>
+                                        <input type="datetime-local" onChange={handleDateTimeChange} ref={reservationDateRef} name="schedule" id="schedule" className="max-w-[12rem] border p-1 bg-white rounded-md" />
                                     </div>
                                 </div>
                                 {/* add to cart button */}

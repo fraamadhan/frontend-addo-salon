@@ -14,6 +14,7 @@ const ProductItem = (props: { product: ProductItemProps }) => {
                     // width={221}
                     // height={300}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     alt={`Gambar ${product.name}`}
                     className="rounded-md object-cover"
                     priority={true}

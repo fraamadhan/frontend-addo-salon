@@ -11,7 +11,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { toast } from "sonner";
 
-const CartItem = ({ cart, checked, onCheckboxCart }: { cart: CartResponse, checked: boolean, onCheckboxCart: (value: string) => void }) => {
+const CartItem = ({ cart, note, checked, onCheckboxCart, onNoteChange }: { cart: CartResponse, note: string, checked: boolean, onCheckboxCart: (value: string) => void, onNoteChange: (cartId: string, value: string) => void }) => {
 
     const queryClient = useQueryClient();
     const handleDeleteCart = (cartId: string) => {
@@ -27,7 +27,7 @@ const CartItem = ({ cart, checked, onCheckboxCart }: { cart: CartResponse, check
     }
 
     const mutation = useDeleteCart({
-        onSuccess: (data: any) => {
+        onSuccess: (data) => {
             if (data.status !== 200 || data.statusCode === 400) {
                 toast.error(data.message || data.message[0]);
             } else {
@@ -35,7 +35,7 @@ const CartItem = ({ cart, checked, onCheckboxCart }: { cart: CartResponse, check
                 toast.success("Cart deleted successfully");
             }
         },
-        onError: (error: any) => {
+        onError: (error) => {
             console.error("Error deleting cart:", error);
             toast.error(error.message || "Failed to delete cart");
         }
@@ -54,7 +54,7 @@ const CartItem = ({ cart, checked, onCheckboxCart }: { cart: CartResponse, check
                 </Link>
             </div>
             <div className="flex flex-col sm:flex-row items-stretch justify-between w-full p-2 gap-y-7">
-                <input type="text" aria-label="catatan pesanan" placeholder="Catatan untuk pegawai" name="note" id="note" className="mt-1 w-full md:w-3/4 px-2 py-2 border rounded-md outline-none" />
+                <input type="text" aria-label="catatan pesanan" value={note} placeholder="Catatan untuk pegawai" name="note" id={`note-${cart._id}`} className="mt-1 w-full md:w-3/4 px-2 py-2 border rounded-md outline-none" onChange={(e) => onNoteChange(cart._id, e.target.value)} />
                 <div className="flex items-end justify-end ml-3" onClick={() => handleDeleteCart(cart._id)}>
                     {mutation.isPending ? (
                         <LoaderCircleIcon size={24} className="animate-spin text-gold-500" />

@@ -6,6 +6,7 @@ import ProfileIcon from "./profile";
 import { CreditCard, ScrollText, LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { User } from "@/app/types/general";
+import Link from "next/link";
 
 
 const DropdownItem = (props: { user: User | null }) => {
@@ -22,7 +23,9 @@ const DropdownItem = (props: { user: User | null }) => {
             {/* profile */}
             <div className="flex items-center justify-between space-x-7">
                 <ProfileIcon name={props.user?.name} image={props.user?.asset?.publicUrl ?? "/si.jpeg"} />
-                <Button className="bg-gold-500 text-sm p-2 rounded-xl text-white cursor-pointer">Lihat Profil</Button>
+                <Link href={`/profile`} target="_blank">
+                    <Button className="bg-gold-500 text-sm p-2 rounded-xl text-white cursor-pointer">Lihat Profil</Button>
+                </Link>
             </div>
 
             {/* Pembayaran */}

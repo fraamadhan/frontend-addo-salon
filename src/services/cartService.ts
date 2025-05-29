@@ -42,6 +42,31 @@ export const useDeleteCart = ({ onSuccess, onError }: StateStatus) => {
   });
 };
 
+export const useCheckoutCart = ({ onSuccess, onError }: StateStatus) => {
+  return useMutation({
+    mutationFn: async ({ token, items }: { token: string; items: { cartId: string; productId: string; reservationDate: string; estimation: number }[] }) => {
+      try {
+        const response = await axiosInstance.put(
+          `${GET_CARTS_ENDPOINT}/checkout`,
+          { items },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
+        return response.data;
+      } catch (error) {
+        if (error instanceof AxiosError) {
+          throw new Error(error.response?.data?.message || "Failed to checkout cart");
+        }
+      }
+    },
+    onSuccess,
+    onError,
+  });
+};
+
 export const useAddToCart = ({ onSuccess, onError }: StateStatus) => {
   return useMutation({
     mutationFn: async ({ token, productId, reservationDate, estimation }: { token: string; productId: string; reservationDate: string; estimation: number }) => {

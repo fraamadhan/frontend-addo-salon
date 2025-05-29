@@ -16,7 +16,7 @@ const SectionSimilarProducts = ({ slug }: { slug: string }) => {
     const [canScrollLeft, setCanScrollLeft] = useState(false)
     const [canScrollRight, setCanScrollRight] = useState(false)
 
-    const { data, isLoading, isError } = useGetProducts({ category: slug, page: "1" })
+    const { data, isLoading, isError } = useGetProducts({ category: slug, page: "1" }, !!slug)
 
     const products = useMemo(() => data?.data?.products || [], [data]);
 

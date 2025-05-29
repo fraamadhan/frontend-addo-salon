@@ -3,49 +3,32 @@
 import { ServiceScheduleItem } from "@/app/types/service-schedule-response";
 import { dateFormatter } from "@/lib/date-formatter";
 import { useGetSchedule } from "@/services/productService";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Pagination } from "../pagination/pagination";
+import Button from "../button/button";
 
 const SectionServiceSchedule = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const [totalPage, setTotalPage] = useState(1);
     const [startDate, setStartDate] = useState<Date | string | null>(null);
     const [endDate, setEndDate] = useState<Date | string | null>(null);
+    const startDateRef = useRef<HTMLInputElement>(null);
+    const endDateRef = useRef<HTMLInputElement>(null);
 
     const handlePageChange = (page: number) => {
         setCurrentPage(page);
     }
 
-    const handleStartDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const startDate = new Date(e.target.value);
+    const handleApplyFilter = () => {
+        const startDate = startDateRef.current?.value;
+        const endDate = endDateRef.current?.value;
 
-        if (e.target.value === '') {
-            setStartDate(null);
-            return;
-        }
-
-        if (isNaN(startDate.getTime())) {
-            console.error("Invalid date format");
-            return;
-        }
         setCurrentPage(1);
-        setStartDate(startDate.toISOString());
-    }
-    const handleEndDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const endDate = new Date(e.target.value);
 
-        if (e.target.value === '') {
-            setEndDate(null);
-            return;
-        }
-
-        if (isNaN(endDate.getTime())) {
-            console.error("Invalid date format");
-            return;
-        }
-        setCurrentPage(1);
-        setEndDate(endDate.toISOString());
+        setStartDate(startDate && startDate !== '' ? new Date(startDate).toISOString() : null);
+        setEndDate(endDate && endDate !== '' ? new Date(endDate).toISOString() : null);
     }
+
     const { data: schedule, isLoading: isLoading, isError: isError } = useGetSchedule(currentPage, startDate ? startDate : '', endDate ? endDate : '');
 
     const paginator = schedule?.data?.paginator || null;
@@ -67,16 +50,21 @@ const SectionServiceSchedule = () => {
     }, [schedule]);
     return (
         <div className="w-full mt-3">
-            <div className="w-full flex flex-col sm:flex-row items-start gap-x-3 gap-y-2">
+            <div className="w-full flex flex-col sm:flex-row items-start sm:items-stretch gap-x-3 gap-y-2">
                 <div className="flex flex-col gap-y-2">
                     <label htmlFor="startDate">Jadwal Pesanan Mulai</label>
-                    <input type="datetime-local" name="startDate" id="startDate" className="max-w-[12rem] border p-1 bg-white rounded-md" onChange={handleStartDateChange} />
+                    <input type="datetime-local" ref={startDateRef} name="startDate" id="startDate" className="max-w-[12rem] border p-1 bg-white rounded-md" />
                 </div>
                 <div className="flex flex-col gap-y-2">
-                    <label htmlFor="startDate">Jadwal Pesanan Selesai</label>
-                    <input type="datetime-local" name="startDate" id="startDate" className="max-w-[12rem] border p-1 bg-white rounded-md" onChange={handleEndDateChange} />
+                    <label htmlFor="endDate">Jadwal Pesanan Selesai</label>
+                    <input type="datetime-local" ref={endDateRef} name="endDate" id="endDate" className="max-w-[12rem] border p-1 bg-white rounded-md" />
                 </div>
-                <div></div>
+                <div className="flex flex-col gap-y-2 justify-between">
+                    <div className="leading-none">Terapkan filter</div>
+                    <Button className="max-w-[12rem] bg-gold-500 text-white p-1 rounded-md" onClick={handleApplyFilter}>
+                        Terapkan
+                    </Button>
+                </div>
             </div>
 
             {/* mobile view */}
@@ -98,7 +86,7 @@ const SectionServiceSchedule = () => {
                                 <p className="font-semibold text-gray-600"># {(paginator.currentPage - 1) * paginator.limit + idx + 1}</p>
                                 <p className="font-bold text-base">Nama pelanggan: <span className="font-bold">{item.user.name}</span></p>
                                 <p className="text-sm">Jadwal: <span>{dateFormatter(item.reservationDate)}</span></p>
-                                <p className="text-sm">Estimasi selesai: <span>{dateFormatter(item.estimatedFinishDatePerTransaction)}</span></p>
+                                <p className="text-sm">Estimasi selesai: <span>{dateFormatter(item.estimatedFinishDate)}</span></p>
                             </div>
                         ))
                     )
@@ -155,7 +143,7 @@ const SectionServiceSchedule = () => {
                                             <td className="hidden sm:table-cell p-2">{item.product.name}</td>
                                             <td className="p-2">{dateFormatter(item.reservationDate)}</td>
                                             <td className="p-2">{item.serviceStatus}</td>
-                                            <td className="p-2">{dateFormatter(item.estimatedFinishDatePerTransaction)}</td>
+                                            <td className="p-2">{dateFormatter(item.estimatedFinishDate)}</td>
                                         </tr>
                                     ))
                                 }

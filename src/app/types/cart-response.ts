@@ -12,3 +12,12 @@ export type CartResponse = {
   updatedAt: string;
   assetRef: string;
 };
+
+export type CheckoutResponse = {
+  note: string;
+  productId: string;
+  reservationDate: string;
+  estimation: number;
+  cartId: string;
+  price: number;
+};

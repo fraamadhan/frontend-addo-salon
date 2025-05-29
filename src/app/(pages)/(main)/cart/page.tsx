@@ -13,6 +13,7 @@ const CartPage = () => {
     const [isHidden, setIsHidden] = useState<boolean>(true);
     const [token, setToken] = useState<string>("");
     const [selectedCarts, setSelectedCarts] = useState<CartResponse[]>([]);
+    const [cartNotes, setCartNotes] = useState<Record<string, string>>({});
     const summaryRef = useRef<HTMLElement | null>(null);
 
     const scrollToSummary = () => {
@@ -23,6 +24,13 @@ const CartPage = () => {
         setSelectedCartIds((prev: string[]) => {
             return prev.includes(cartId) ? prev.filter((id) => id !== cartId) : [...prev, cartId]
         })
+    }
+
+    const handleNoteChange = (cartId: string, note: string) => {
+        setCartNotes((prev) => ({
+            ...prev,
+            [cartId]: note
+        }));
     }
     const { data: carts, isLoading, isError } = useGetCarts(token);
 
@@ -59,11 +67,11 @@ const CartPage = () => {
                             </p>
                         )
                     }
-                    <CartList carts={carts?.data || []} isLoading={isLoading} isError={isError} selectedCartIds={selectedCartIds} onCheckboxCart={handleCheckboxCart} />
+                    <CartList carts={carts?.data || []} cartNotes={cartNotes} onNoteChange={handleNoteChange} isLoading={isLoading} isError={isError} selectedCartIds={selectedCartIds} onCheckboxCart={handleCheckboxCart} />
                 </section>
                 {/* overview order */}
                 <section ref={summaryRef} className="scroll-mt-52 w-full md:w-2/6 xl:w-1/3 relative mt-10 sm:mt-0 bg-white border-1 shadow-xl rounded-md">
-                    <SummaryOrder selectedCarts={selectedCarts} />
+                    <SummaryOrder selectedCarts={selectedCarts} cartNotes={cartNotes} />
                 </section>
             </div>
         </main >

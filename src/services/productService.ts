@@ -14,7 +14,7 @@ export const useGetCategories = () => {
   });
 };
 
-export const useGetProducts = (queryParams: ParamsSearchProductDto) => {
+export const useGetProducts = (queryParams: ParamsSearchProductDto, shouldFetch = true) => {
   return useQuery({
     queryKey: ["getProducts", queryParams],
     queryFn: async () => {
@@ -24,9 +24,9 @@ export const useGetProducts = (queryParams: ParamsSearchProductDto) => {
         },
       });
 
-      console.log(response.data);
       return response.data;
     },
+    enabled: shouldFetch,
   });
 };
 

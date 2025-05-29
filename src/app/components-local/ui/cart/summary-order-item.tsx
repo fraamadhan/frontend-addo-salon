@@ -1,7 +1,8 @@
 import { CartResponse } from "@/app/types/cart-response";
+import { CollectBillItem } from "@/app/types/checkout-payment-response";
 import { rupiahFormatter } from "@/lib/rupiah-formatter";
 
-const SummaryOrderItem = (props: { idx: number, item: CartResponse }) => {
+const SummaryOrderItem = (props: { idx: number, item: CartResponse | CollectBillItem }) => {
     return (
         <article className="w-full flex flex-col gap-y-1 border-b-2 border-gold-500 p-2 shadow-lg">
             <p className="font-semibold">Pesanan ke {props.idx}</p>

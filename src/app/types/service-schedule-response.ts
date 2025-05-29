@@ -2,7 +2,7 @@ import { Paginator } from "./general";
 
 export type ServiceScheduleResponse = {
   schedules: ServiceScheduleItem[];
-  paginator: Paginator
+  paginator: Paginator;
 };
 
 export type ServiceScheduleItem = {
@@ -28,6 +28,5 @@ export type ServiceScheduleItem = {
     estimation: number;
   };
   estimation: number;
-  totalEstimationPerTransaction: number;
-  estimatedFinishDatePerTransaction: string;
+  estimatedFinishDate: string;
 };

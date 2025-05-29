@@ -7,7 +7,7 @@ export const totalPriceCount = (items: CartResponse[], transactionFee: number = 
 };
 
 export const totalEstimation = (items: CartResponse[]) => {
-  const totalPrice = items.reduce((accum, item) => accum + item.product.estimation, 0);
+  const estimationTotal = items.reduce((accum, item) => accum + item.product.estimation, 0);
 
-  return totalPrice;
+  return estimationTotal;
 };
