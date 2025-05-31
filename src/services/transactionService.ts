@@ -1,4 +1,5 @@
 import { StateStatus } from "@/app/types/general";
+import { ParamsPaymentList } from "@/app/types/query-params";
 import { PaymentTransactionPayload } from "@/app/types/transaction-type";
 import { axiosInstance } from "@/lib/axios";
 import { TRANSACTION_ENDPOINT } from "@/lib/endpoints";
@@ -102,5 +103,61 @@ export const useGetStatusOrder = ({ token, transactionId }: { token: string; tra
       return response.data.data;
     },
     enabled: !!token && !!transactionId,
+  });
+};
+
+export const useGetPaymentList = (token: string, queryParams: ParamsPaymentList) => {
+  return useQuery({
+    queryKey: ["getPaymentList", queryParams],
+    queryFn: async () => {
+      const response = await axiosInstance.get(`${TRANSACTION_ENDPOINT}/payments`, {
+        params: {
+          ...queryParams,
+        },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      return response.data;
+    },
+    enabled: !!token,
+  });
+};
+
+export const useGetTransactionList = (token: string, queryParams: ParamsPaymentList) => {
+  return useQuery({
+    queryKey: ["getTransactionList", queryParams],
+    queryFn: async () => {
+      const response = await axiosInstance.get(`${TRANSACTION_ENDPOINT}/orders`, {
+        params: {
+          ...queryParams,
+        },
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      return response.data;
+    },
+    enabled: !!token,
+  });
+};
+
+export const useGetTransactionDetail = (token: string, transactionId: string) => {
+  return useQuery({
+    queryKey: ["getTransactionDetail", transactionId],
+    queryFn: async () => {
+      const response = await axiosInstance.get(`${TRANSACTION_ENDPOINT}/order/${transactionId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      return response.data;
+    },
+    enabled: !!token && !!transactionId,
+    staleTime: Number(process.env.NEXT_PUBLIC_FIVE_MINUTES),
+    gcTime: Number(process.env.NEXT_PUBLIC_FIVE_MINUTES),
   });
 };

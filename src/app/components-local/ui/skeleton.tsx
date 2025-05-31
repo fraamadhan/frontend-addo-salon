@@ -219,3 +219,192 @@ export const ProfileFormSkeleton = () => {
     );
 };
 
+export const PaymentListSkeleton = () => {
+    return (
+        <table className="min-w-[600px] md:min-w-full lg:w-[65rem] table-fixed animate-pulse">
+            <thead>
+                <tr>
+                    <th className="p-2 text-left">Layanan</th>
+                    <th className="p-2 text-left">Pesanan</th>
+                    <th className="p-2 text-left">Total Harga</th>
+                    <th className="p-2 text-left">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {Array.from({ length: 5 }).map((_, i) => (
+                    <tr className="border" key={i}>
+                        {/* Layanan */}
+                        <td className="w-3/8 h-3 p-2">
+                            <div className="flex flex-col gap-y-2 max-h-32 overflow-y-hidden">
+                                {Array.from({ length: 4 }).map((_, j) => (
+                                    <div key={j} className="flex justify-between gap-2">
+                                        <div className="h-4 bg-gray-300 rounded w-2/3" />
+                                        <div className="h-4 bg-gray-300 rounded w-1/3" />
+                                    </div>
+                                ))}
+                            </div>
+                        </td>
+
+                        {/* Pesanan */}
+                        <td className="w-2/8 text-sm md:text-base p-2">
+                            <div className="flex flex-col gap-y-2 items-center">
+                                <div className="h-4 w-24 bg-gray-300 rounded" />
+                                <div className="h-4 w-32 bg-gray-300 rounded" />
+                                <div className="h-4 w-24 bg-gray-300 rounded" />
+                                <div className="h-4 w-32 bg-gray-300 rounded" />
+                            </div>
+                        </td>
+
+                        {/* Total Harga */}
+                        <td className="w-2/8 text-sm md:text-base p-2">
+                            <div className="flex flex-col items-center justify-center gap-y-2">
+                                <div className="h-4 w-20 bg-gray-300 rounded" />
+                                <div className="h-4 w-32 bg-gray-300 rounded" />
+                            </div>
+                        </td>
+
+                        {/* Status */}
+                        <td className="w-1/8 p-2 text-center">
+                            <div className="flex flex-col justify-center items-center gap-y-2">
+                                <div className="h-6 w-40 bg-gray-300 rounded-md" />
+                                <div className="h-6 w-28 bg-gray-300 rounded-md" />
+                            </div>
+                        </td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    );
+};
+
+export const TransactionItemSkeleton = () => {
+    return (
+        <div className="w-full flex flex-col gap-y-2 border-2 rounded-xl shadow-xl p-4 animate-pulse">
+            {/* top */}
+            <div className="flex flex-col-reverse md:flex-row md:items-center gap-y-1">
+                <div className="flex w-full text-sm items-center gap-x-2">
+                    <div className="w-32 h-4 bg-gray-300 rounded"></div>
+                    <div className="w-24 h-4 bg-gray-300 rounded"></div>
+                </div>
+                <div className="w-full flex md:justify-end">
+                    <div className="p-2 bg-gray-300 rounded-lg w-[4rem] h-6"></div>
+                </div>
+            </div>
+
+            {/* mid */}
+            <div className="w-full flex flex-col md:flex-row md:items-center gap-y-2">
+                {/* service information */}
+                <div className="w-full flex items-center gap-x-7">
+                    <div className="w-[70px] h-[85px] md:w-[100px] md:h-[120px] bg-gray-300 rounded-md" />
+                    <div className="flex flex-col gap-y-3">
+                        <div className="max-w-[10rem] space-y-1">
+                            <div className="h-4 bg-gray-300 rounded w-28"></div>
+                            <div className="h-4 bg-gray-300 rounded w-24"></div>
+                        </div>
+                        <div className="h-4 w-20 bg-gray-300 rounded"></div>
+                        <div className="h-4 w-32 bg-gray-300 rounded"></div>
+                    </div>
+                </div>
+                {/* total price */}
+                <div className="w-full flex md:flex-col items-center md:items-start justify-between md:justify-start gap-3">
+                    <div className="h-4 w-24 bg-gray-300 rounded"></div>
+                    <div className="h-5 w-28 bg-gray-300 rounded"></div>
+                </div>
+            </div>
+
+            {/* bottom */}
+            <div className="flex items-center justify-end">
+                <div className="h-5 w-32 bg-gray-300 rounded"></div>
+            </div>
+        </div>
+    )
+}
+
+export const ProfileIconSkeleton = () => {
+    return (
+        <div className="animate-pulse flex items-center space-x-3">
+            <div className="w-12 h-12 bg-gray-300 rounded-full" />
+            <div className="flex flex-col space-y-2">
+                <div className="w-24 h-4 bg-gray-300 rounded" />
+                <div className="w-16 h-3 bg-gray-200 rounded" />
+            </div>
+        </div >
+    )
+}
+
+const SkeletonBox = ({ className }: { className?: string }) => (
+    <div className={`bg-gray-200 animate-pulse rounded ${className}`} />
+);
+
+export const SkeletonTransactionDetail = () => {
+    return (
+        <div className="space-y-5">
+            {/* Status box */}
+            <div className="w-full p-7 bg-gray-100 rounded-lg shadow">
+                <SkeletonBox className="w-32 h-5" />
+            </div>
+
+            {/* Detail Info */}
+            <section className="w-full md:max-w-[25rem] md:p-2">
+                <div className="w-full p-7 flex flex-col justify-between bg-white rounded-xl shadow border gap-y-9">
+                    <div className="flex gap-x-3">
+                        <div className="flex flex-col gap-y-2 w-full sm:items-center">
+                            <SkeletonBox className="w-28 h-4" />
+                            <SkeletonBox className="w-40 h-4" />
+                        </div>
+                        <div className="flex flex-col gap-y-2 w-full sm:items-center">
+                            <SkeletonBox className="w-28 h-4" />
+                            <SkeletonBox className="w-36 h-4" />
+                        </div>
+                    </div>
+                    <div className="flex gap-x-3">
+                        <div className="flex flex-col gap-y-2 w-full sm:items-center">
+                            <SkeletonBox className="w-32 h-4" />
+                            <SkeletonBox className="w-48 h-4" />
+                        </div>
+                        <div className="flex flex-col gap-y-2 w-full sm:items-center">
+                            <SkeletonBox className="w-28 h-4" />
+                            <SkeletonBox className="w-24 h-4" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* Table skeleton */}
+            <section className="w-full space-y-3 p-7 border shadow-lg rounded-xl">
+                <SkeletonBox className="w-52 h-6" />
+
+                <div className="overflow-x-auto mt-3">
+                    <table className="min-w-full table-auto border-separate border-spacing-y-2">
+                        <thead className="text-center bg-gray-100">
+                            <tr>
+                                <th className="p-3"><SkeletonBox className="h-4 w-20 mx-auto" /></th>
+                                <th className="p-3"><SkeletonBox className="h-4 w-20 mx-auto" /></th>
+                                <th className="p-3"><SkeletonBox className="h-4 w-20 mx-auto" /></th>
+                                <th className="p-3"><SkeletonBox className="h-4 w-20 mx-auto" /></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {[...Array(2)].map((_, i) => (
+                                <tr key={i} className="bg-white shadow-sm rounded-xl">
+                                    <td className="p-3">
+                                        <div className="flex items-center gap-x-3">
+                                            <SkeletonBox className="w-[60px] h-[72px] rounded-xl shrink-0" />
+                                            <div className="flex-1 min-w-0 space-y-2">
+                                                <SkeletonBox className="h-4 w-48" />
+                                                <SkeletonBox className="h-4 w-24" />
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="p-3 text-center"><SkeletonBox className="h-4 w-20 mx-auto" /></td>
+                                    <td className="p-3 text-center"><SkeletonBox className="h-4 w-32 mx-auto" /></td>
+                                    <td className="p-3 text-center"><SkeletonBox className="h-4 w-16 mx-auto" /></td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    );
+};

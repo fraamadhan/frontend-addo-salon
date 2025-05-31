@@ -7,15 +7,24 @@ import { CreditCard, ScrollText, LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { User } from "@/app/types/general";
 import Link from "next/link";
+import { toast } from "sonner";
 
 
-const DropdownItem = (props: { user: User | null }) => {
+const DropdownItem = (props: { user: User | null, showMenu: boolean | null }) => {
 
     const router = useRouter();
 
     const onClick = () => {
         deleteAccessToken()
+        toast.error("Anda akan diarahkan ke halaman masuk...")
         router.replace('/auth/login')
+    }
+
+    const handleMovePage = () => {
+        toast.info("Anda sudah berpindah halaman, klik X", {
+            position: 'top-center',
+            duration: 1500
+        })
     }
 
     return (
@@ -31,12 +40,12 @@ const DropdownItem = (props: { user: User | null }) => {
             {/* Pembayaran */}
             <div className="flex items-center space-x-4 cursor-pointer hover:bg-gray-600 p-2">
                 <CreditCard />
-                <p>Pembayaran</p>
+                <Link href={'/transaction/payment'} onClick={props.showMenu ? handleMovePage : () => { }}>Pembayaran</Link>
             </div>
             {/* Daftar Transaksi */}
             <div className="flex items-center space-x-4 cursor-pointer hover:bg-gray-600 p-2">
                 <ScrollText />
-                <p>Daftar Transaksi</p>
+                <Link href={'/transaction'} onClick={props.showMenu ? handleMovePage : () => { }}>Daftar Transaksi</Link>
             </div>
             {/* Tombol keluar */}
             <div className="flex items-center space-x-4 cursor-pointer hover:bg-gray-600 p-2">

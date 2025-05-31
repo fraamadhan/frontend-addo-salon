@@ -60,8 +60,14 @@ export const Footer = () => {
                 <div className="flex flex-wrap gap-3 md:gap-4 items-center justify-center space-x-7">
                     {
                         paymentMethods.map((method, i) => (
-                            <div className="flex-none w-fit items-center hover:bg-gold-500 p-2" key={i}>
-                                <Image src={method.src} width={70} height={70} alt={method.alt} priority />
+                            <div className="flex-none relative w-[70px] h-[70px] items-center hover:bg-gold-500 p-2" key={i}>
+                                <Image
+                                    src={method.src}
+                                    alt={method.alt}
+                                    fill
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                                    className="object-contain"
+                                />
                             </div>
                         ))
                     }

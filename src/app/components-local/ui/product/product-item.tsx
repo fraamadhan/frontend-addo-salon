@@ -8,7 +8,7 @@ const ProductItem = (props: { product: ProductItemProps }) => {
     return (
         <article className='flex flex-col w-full lg:max-w-[15rem] rounded-md space-y-1 bg-gray-50 p-2 shadow-lg'>
             {/* image */}
-            <div className="relative aspect-[221/300]">
+            <div className="relative aspect-[90/120]">
                 <Image
                     src={product.assetRef}
                     // width={221}

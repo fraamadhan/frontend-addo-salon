@@ -18,6 +18,7 @@ const ConfirmPayment = () => {
     const [isCompleted, setIsCompleted] = useState(false);
     const [isFailed, setIsFailed] = useState(false);
     const [isPending, setIsPending] = useState(false);
+    const [isExpired, setIsExpired] = useState(false);
     const params = useParams<{ transactionId: string }>();
 
     const { data, isLoading, isError } = useGetPaymentConfirm({ token, transactionId: params.transactionId })
@@ -33,9 +34,17 @@ const ConfirmPayment = () => {
             setIsCompleted(true)
             setIsPending(false);
             setIsFailed(false);
+            setIsExpired(false);
         }
         else if (transaction_status === 'pending') {
             setIsPending(true);
+            setIsCompleted(false);
+            setIsFailed(false);
+            setIsExpired(false);
+        }
+        else if (transaction_status === 'expire') {
+            setIsExpired(true);
+            setIsPending(false);
             setIsCompleted(false);
             setIsFailed(false);
         }
@@ -43,6 +52,7 @@ const ConfirmPayment = () => {
             setIsFailed(true)
             setIsPending(false);
             setIsCompleted(false);
+            setIsExpired(false);
         }
     }
 
@@ -102,6 +112,16 @@ const ConfirmPayment = () => {
                                     <div className="text-xl font-semibold mb-2">Status Pembayaran</div>
                                     <div className={`w-[12rem] rounded-md text-center my-3 text-2xl font-medium bg-blue-500 text-white`}>
                                         Bayar dulu yuk tagihannya
+                                    </div>
+                                </div>
+                            )
+                        }
+                        {
+                            isExpired && (
+                                <div className="w-full p-4 bg-white shadow rounded-md text-center items-center justify-center flex flex-col gap-y-1">
+                                    <div className="text-xl font-semibold mb-2">Status Pembayaran</div>
+                                    <div className={`w-[12rem] rounded-md text-center my-3 text-2xl font-medium bg-red-500 text-white`}>
+                                        Pembayaran Kedaluwarsa
                                     </div>
                                 </div>
                             )
