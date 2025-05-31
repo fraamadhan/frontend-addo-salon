@@ -51,17 +51,17 @@ const SectionServiceSchedule = () => {
     return (
         <div className="w-full mt-3">
             <div className="w-full flex flex-col sm:flex-row items-start sm:items-stretch gap-x-3 gap-y-2">
-                <div className="flex flex-col gap-y-2">
+                <div className="flex sm:flex-col gap-y-2 items-center gap-x-3">
                     <label htmlFor="startDate">Jadwal Pesanan Mulai</label>
                     <input type="datetime-local" ref={startDateRef} name="startDate" id="startDate" className="max-w-[12rem] border p-1 bg-white rounded-md" />
                 </div>
-                <div className="flex flex-col gap-y-2">
+                <div className="flex sm:flex-col gap-y-2">
                     <label htmlFor="endDate">Jadwal Pesanan Selesai</label>
                     <input type="datetime-local" ref={endDateRef} name="endDate" id="endDate" className="max-w-[12rem] border p-1 bg-white rounded-md" />
                 </div>
-                <div className="flex flex-col gap-y-2 justify-between">
-                    <div className="leading-none">Terapkan filter</div>
-                    <Button className="max-w-[12rem] bg-gold-500 text-white p-1 rounded-md" onClick={handleApplyFilter}>
+                <div className="flex w-full sm:flex-col items-center sm:justify-between justify-center">
+                    <div className="hidden sm:inline leading-none">Terapkan filter</div>
+                    <Button className="w-full max-w-[15rem] bg-gold-600 text-white p-1 rounded-md" onClick={handleApplyFilter}>
                         Terapkan
                     </Button>
                 </div>

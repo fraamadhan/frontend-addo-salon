@@ -66,7 +66,7 @@ const SectionSimilarProducts = ({ slug }: { slug: string }) => {
     return (
         <section className="w-full flex flex-col justify-center items-center">
             <div className="w-full flex justify-between items-center">
-                <h2 className="font-lora text-lg md:text-2xl font-semibold text-black">Layanan dengan kategori serupa</h2>
+                <h2 className="font-lora text-lg md:text-lg font-semibold text-black">Layanan dengan kategori serupa</h2>
                 <Link href={`/service?page=1&limit=10&category=${slug}`} className="flex items-center lg:space-x-1 cursor-pointer">
                     <p className="font-medium text-sm md:text-base">Lihat semua</p>
                     <ChevronRight />

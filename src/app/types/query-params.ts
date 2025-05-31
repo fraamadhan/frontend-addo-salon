@@ -20,3 +20,7 @@ export class ParamsReviewDto {
   userId?: string;
   productId?: string;
 }
+
+export class ParamsPaymentList extends PaginationParams {
+  paymentStatus?: string;
+}

@@ -6,7 +6,7 @@ import { AxiosError } from "axios";
 
 export const useGetUser = (token: string | undefined, id: string) => {
   return useQuery({
-    queryKey: ["getUserById"],
+    queryKey: ["getUserById", id],
     queryFn: async () => {
       const response = await axiosInstance.get(`${USER_ENDPOINT}${id}`, {
         headers: { Authorization: `Bearer ${token}` },

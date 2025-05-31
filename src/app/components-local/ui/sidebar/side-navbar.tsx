@@ -1,4 +1,4 @@
-import { CreditCardIcon, ScrollTextIcon, User2Icon } from "lucide-react";
+import { CreditCardIcon, NotebookIcon, ScrollTextIcon, User2Icon } from "lucide-react";
 import Link from "next/link";
 
 const SideNavbar = () => {
@@ -9,13 +9,17 @@ const SideNavbar = () => {
                     <User2Icon className="leading-none" />
                     <span className="leading-none">Profile</span>
                 </Link>
-                <Link href={'/payment/history'} className="flex flex-col items-center md:flex-row md:items-center gap-x-2 gap-y-1">
+                <Link href={'/transaction/payment'} className="flex flex-col items-center md:flex-row md:items-center gap-x-2 gap-y-1">
                     <CreditCardIcon className="leading-none" />
                     <span className="leading-none">Pembayaran</span>
                 </Link>
                 <Link href={'/transaction'} className="flex flex-col items-center md:flex-row md:items-center gap-x-2 gap-y-1">
                     <ScrollTextIcon className="leading-none" />
                     <span className="leading-none">Daftar Transaksi</span>
+                </Link>
+                <Link href={'/review'} className="flex flex-col items-center md:flex-row md:items-center gap-x-2 gap-y-1">
+                    <NotebookIcon className="leading-none" />
+                    <span className="leading-none">Ulasan</span>
                 </Link>
             </div>
         </nav>

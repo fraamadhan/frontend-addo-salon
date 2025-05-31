@@ -10,4 +10,6 @@ export const axiosInstance = axios.create({
   baseURL: baseUrl,
   timeout: timeout,
   timeoutErrorMessage: timeoutErrorMessage,
+  maxRedirects: 5,
+  validateStatus: (status) => status < 500,
 });

@@ -9,7 +9,7 @@ import { toast } from "sonner";
 import { useGetUser, useUpdateUser } from "@/services/userService";
 import { ProfileFormSkeleton } from "../skeleton";
 import { birthDateFormater } from "@/lib/date-formatter";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
 import { UpdateProfileSchema } from "@/lib/validation/user";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -20,11 +20,12 @@ const GeneralInformation = () => {
 
     const [token, setToken] = useState("")
     const [userId, setUserId] = useState("")
-    const [gender, setGender] = useState("");
     const [imagePreview, setImagePreview] = useState<string | null>(null);
     const queryClient = useQueryClient()
+    const [isUserLoaded, setIsUserLoaded] = useState(false);
 
-    const { register, handleSubmit, formState: { errors }, reset, watch, setValue } = useForm<z.infer<typeof UpdateProfileSchema>>({
+
+    const { control, register, handleSubmit, formState: { errors }, reset, setValue } = useForm<z.infer<typeof UpdateProfileSchema>>({
         resolver: zodResolver(UpdateProfileSchema),
         defaultValues: {
             username: "",
@@ -38,7 +39,6 @@ const GeneralInformation = () => {
     })
 
     const { data, isLoading, isError } = useGetUser(token, userId)
-    const genderValue = watch("gender");
 
     const user = data?.data?.data
 
@@ -72,7 +72,7 @@ const GeneralInformation = () => {
         reset({
             username: user.name || "",
             email: user.email || "",
-            gender: (user.gender || "").trim(),
+            gender: user.gender || "",
             phone_number: user.phone_number || "",
             birth_date: birthDateFormater(user.birth_date) || "",
             address: user.address || ""
@@ -108,19 +108,26 @@ const GeneralInformation = () => {
         setUserId(userId)
     }, [])
 
+
     useEffect(() => {
         if (user) {
             reset({
                 username: user.name || "",
                 email: user.email || "",
-                gender: (user.gender || "").trim(),
+                gender: user.gender ?? "",
                 phone_number: user.phone_number || "",
                 birth_date: birthDateFormater(user.birth_date) || "",
                 address: user.address || ""
             });
-            setGender((user.gender).trim() ?? "")
+            setIsUserLoaded(true)
         }
     }, [user, reset]);
+
+    useEffect(() => {
+        return () => {
+            if (imagePreview) URL.revokeObjectURL(imagePreview);
+        }
+    }, [imagePreview]);
 
     return (
         <section className="flex flex-col w-full lg:w-[45rem] xl:w-[65rem] items-center justify-center md:justify-start p-3 border shadow-xl rounded-xl gap-y-7">
@@ -209,21 +216,26 @@ const GeneralInformation = () => {
                                 <div className="flex items-center gap-x-3">
                                     <label htmlFor="gender" className="w-[6rem]">Jenis Kelamin</label>
                                     {
-                                        gender !== "" ? (
-                                            <Select
-                                                {...register("gender")}
-                                                value={genderValue}
-                                                onValueChange={(value) => setValue("gender", value)}
+                                        !isLoading ? (
+                                            <Controller
+                                                key={isUserLoaded ? 'loaded' : 'loading'}
+                                                control={control}
                                                 name="gender"
-                                            >
-                                                <SelectTrigger className="w-[18rem] focus:outline-none">
-                                                    <SelectValue placeholder="Jenis Kelamin" />
-                                                </SelectTrigger>
-                                                <SelectContent className="w-[18rem] flex flex-col space-y-3 text-gray-400 border rounded-xl p-2 ">
-                                                    <SelectItem className="p-1" value="male" >Laki-laki</SelectItem>
-                                                    <SelectItem className="p-1" value="female" >Perempuan</SelectItem>
-                                                </SelectContent>
-                                            </Select>
+                                                render={({ field }) => (
+                                                    <Select
+                                                        value={field.value}
+                                                        onValueChange={field.onChange}
+                                                    >
+                                                        <SelectTrigger className="w-[18rem] focus:outline-none">
+                                                            <SelectValue placeholder="Jenis Kelamin" />
+                                                        </SelectTrigger>
+                                                        <SelectContent className="w-[18rem] flex flex-col space-y-3 text-gray-400 border rounded-xl p-2">
+                                                            <SelectItem className="p-1" value="male">Laki-laki</SelectItem>
+                                                            <SelectItem className="p-1" value="female">Perempuan</SelectItem>
+                                                        </SelectContent>
+                                                    </Select>
+                                                )}
+                                            />
                                         ) : (
                                             <input type="text" className="outline-none p-2 bg-white border-2 rounded-lg w-[18rem]" placeholder="Jenis Kelamin" aria-label="jenis kelamin skeleton" disabled />
                                         )

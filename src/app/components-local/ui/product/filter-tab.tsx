@@ -26,10 +26,12 @@ const FilterTab = () => {
         const isChecked = e.target.checked;
         if (isChecked) {
             currentParams.set('rating', '4');
+            currentParams.set('page', "1")
             router.replace(`${pathname}?${currentParams.toString()}`);
         }
         else {
             currentParams.delete('rating');
+            currentParams.set('page', "1")
             router.replace(`${pathname}?${currentParams.toString()}`);
         }
     }
@@ -38,6 +40,7 @@ const FilterTab = () => {
         const currentParams = new URLSearchParams(searchParams);
         const price = value
         currentParams.set('highestPrice', price);
+        currentParams.set('page', "1")
         router.replace(`${pathname}?${currentParams.toString()}`);
     }, 500)
 
@@ -45,6 +48,7 @@ const FilterTab = () => {
         const currentParams = new URLSearchParams(searchParams);
         const price = value
         currentParams.set('lowestPrice', price);
+        currentParams.set('page', "1")
         router.replace(`${pathname}?${currentParams.toString()}`);
     }, 500)
 
@@ -52,6 +56,7 @@ const FilterTab = () => {
         setType(e.target.value)
         const currentParams = new URLSearchParams(searchParams);
         currentParams.set('type', e.target.value);
+        currentParams.set('page', "1")
         router.replace(`${pathname}?${currentParams.toString()}`);
     }
 
@@ -67,6 +72,8 @@ const FilterTab = () => {
         currentParams.set('page', '1')
         currentParams.set('limit', '10')
         currentParams.delete('type')
+        currentParams.delete('sorttype')
+        currentParams.delete('sortby')
         setType(undefined)
         router.replace(`${pathname}?${currentParams.toString()}`);
     }

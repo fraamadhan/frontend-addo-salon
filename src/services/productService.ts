@@ -1,7 +1,7 @@
 import { ParamsSearchProductDto } from "@/app/types/query-params";
 import { axiosInstance } from "@/lib/axios";
 import { GET_CATEGORIES_ENDPOINT, GET_PRODUCTS_ENDPOINT, GET_SCHEDULES } from "@/lib/endpoints";
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 
 export const useGetCategories = () => {
   return useQuery({
@@ -11,6 +11,9 @@ export const useGetCategories = () => {
 
       return response.data;
     },
+    staleTime: Number(process.env.NEXT_PUBLIC_FIVE_MINUTES),
+    gcTime: Number(process.env.NEXT_PUBLIC_HALF_HOUR),
+    refetchOnMount: false,
   });
 };
 
@@ -27,6 +30,9 @@ export const useGetProducts = (queryParams: ParamsSearchProductDto, shouldFetch 
       return response.data;
     },
     enabled: shouldFetch,
+    staleTime: Number(process.env.NEXT_PUBLIC_TWO_MINUTES),
+    gcTime: Number(process.env.NEXT_PUBLIC_TEN_MINUTES),
+    placeholderData: keepPreviousData,
   });
 };
 
@@ -38,6 +44,9 @@ export const useGetProduct = (id: string) => {
 
       return response.data;
     },
+    enabled: !!id,
+    staleTime: Number(process.env.NEXT_PUBLIC_FIVE_MINUTES),
+    gcTime: Number(process.env.NEXT_PUBLIC_TEN_MINUTES),
   });
 };
 
@@ -49,5 +58,8 @@ export const useGetSchedule = (page: number, startDate: string | Date, endDate: 
 
       return response.data;
     },
+    staleTime: Number(process.env.NEXT_PUBLIC_ONE_MINUTE),
+    gcTime: Number(process.env.NEXT_PUBLIC_FIVE_MINUTES),
+    placeholderData: keepPreviousData,
   });
 };

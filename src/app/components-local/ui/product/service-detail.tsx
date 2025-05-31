@@ -90,20 +90,25 @@ const ServiceDetail = ({ product, isLoading, isError }: { product: ServiceDetail
                 ) :
                     (
                         <>
-                            <div className="w-[15rem] h-[23rem] md:w-[20rem] md:h-[28rem] bg-gray-100 flex items-center justify-center lg:justify-start rounded shadow-2xl">
+                            <div className="relative w-[15rem] h-[23rem] md:w-[20rem] md:h-[28rem] bg-gray-100 flex items-center justify-center lg:justify-start rounded shadow-2xl overflow-hidden">
                                 <Image
                                     src={product?.assetRef || "/si.jpeg"}
                                     alt="Contoh gambar layanan jasa Addo Salon"
-                                    width={320}
-                                    height={350}
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                    className="w-full h-full object-cover rounded"
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 768px) 15rem, (max-width: 1024px) 20rem, 20rem"
                                     priority
+                                    loading="eager"
+                                    placeholder="blur"
+                                    blurDataURL="/blur.webp"
                                 />
                             </div>
                             <div className="flex flex-col gap-y-3">
                                 <div className="text-lg font-medium">
                                     {product?.name}
+                                </div>
+                                <div className="font-regular">
+                                    <span className="leading-none font-semibold">Estimasi: </span>{product?.estimation} jam
                                 </div>
                                 <div className="text-xl font-bold">
                                     {rupiahFormatter(product?.price)}
@@ -140,7 +145,7 @@ const ServiceDetail = ({ product, isLoading, isError }: { product: ServiceDetail
                                                 <LoaderCircleIcon className="w-5 h-5 animate-spin text-center" />
                                             </Button>
                                         ) : (
-                                            <Button className="flex w-full items-center justify-center gap-x-1 border-2 p-2 cursor-pointer border-gold-500 bg-gold-500 text-white hover:bg-gold-600 rounded-md" onClick={handleAddToCart}>
+                                            <Button className="flex w-full items-center justify-center gap-x-1 border-2 p-2 cursor-pointer border-gold-500 bg-gold-800 text-white hover:bg-gold-600 rounded-md" onClick={handleAddToCart}>
                                                 <PlusIcon stroke="#ffffff" className="w-5 h-5" />
                                                 <span className="leading-none">Keranjang</span>
                                             </Button>

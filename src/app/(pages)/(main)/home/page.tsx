@@ -7,14 +7,14 @@ import { useGetRandomReview } from "@/services/reviewService";
 
 const HomePage = () => {
     const imagesSrc = [
-        { src: '/banner-hero/beauty_addo_salon.jpg', alt: "Layanan Addo Salon" },
-        { src: '/banner-hero/new_shampoo_product.jpeg', alt: "Produk sampo baru yang digunakan" },
-        { src: '/banner-hero/payment_online.jpg', alt: "Pembayaran online melalui website" },
+        { src: '/banner-hero/beauty_addo_salon.webp', alt: "Layanan Addo Salon" },
+        { src: '/banner-hero/new_shampoo_product.webp', alt: "Produk sampo baru yang digunakan" },
+        { src: '/banner-hero/payment_online.webp', alt: "Pembayaran online melalui website" },
     ]
     const categories = [
-        { src: '/category/perawatan-rambut.jpg', href: '/service?page=1&limit=10&category=perawatan-rambut', alt: "Kategori Perawatan Rambut" },
-        { src: '/category/perawatan-wajah.jpg', href: '/service?page=1&limit=10&category=perawatan-wajah', alt: "Kategori Perawatan Wajah" },
-        { src: '/category/make-up.jpg', href: '/service?page=1&limit=10&category=make-up', alt: "Kategori make-up" },
+        { src: '/category/perawatan-rambut.webp', href: '/service?page=1&limit=10&category=perawatan-rambut', alt: "Kategori Perawatan Rambut" },
+        { src: '/category/perawatan-wajah.webp', href: '/service?page=1&limit=10&category=perawatan-wajah', alt: "Kategori Perawatan Wajah" },
+        { src: '/category/make-up.webp', href: '/service?page=1&limit=10&category=make-up', alt: "Kategori make-up" },
     ]
 
     const { data, isLoading } = useGetRandomReview();
