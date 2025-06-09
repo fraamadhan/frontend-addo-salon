@@ -15,10 +15,7 @@ import { toast } from "sonner";
 
 const ConfirmPayment = () => {
     const [token, setToken] = useState('')
-    const [isCompleted, setIsCompleted] = useState(false);
-    const [isFailed, setIsFailed] = useState(false);
-    const [isPending, setIsPending] = useState(false);
-    const [isExpired, setIsExpired] = useState(false);
+    const [paymentStatus, setPaymentStatus] = useState<'completed' | 'pending' | 'expired' | 'failed' | null>(null);
     const params = useParams<{ transactionId: string }>();
 
     const { data, isLoading, isError } = useGetPaymentConfirm({ token, transactionId: params.transactionId })
@@ -28,31 +25,18 @@ const ConfirmPayment = () => {
 
     const handleCheckOrderStatus = async () => {
         const result = await refetch();
-        console.log(order?.data?.transaction_status);
         const transaction_status = result.data.transaction_status;
         if (transaction_status === 'settlement') {
-            setIsCompleted(true)
-            setIsPending(false);
-            setIsFailed(false);
-            setIsExpired(false);
+            setPaymentStatus('completed')
         }
         else if (transaction_status === 'pending') {
-            setIsPending(true);
-            setIsCompleted(false);
-            setIsFailed(false);
-            setIsExpired(false);
+            setPaymentStatus('pending')
         }
         else if (transaction_status === 'expire') {
-            setIsExpired(true);
-            setIsPending(false);
-            setIsCompleted(false);
-            setIsFailed(false);
+            setPaymentStatus('expired')
         }
         else {
-            setIsFailed(true)
-            setIsPending(false);
-            setIsCompleted(false);
-            setIsExpired(false);
+            setPaymentStatus('failed')
         }
     }
 
@@ -67,10 +51,16 @@ const ConfirmPayment = () => {
     }, [])
 
     useEffect(() => {
-        setIsCompleted(false);
-        setIsPending(false);
-        setIsFailed(false);
-    }, [params.transactionId]);
+        if (paymentConfirm?.status === 'PAID') {
+            setPaymentStatus('completed')
+        }
+        else if (paymentConfirm?.status === 'EXPIRED') {
+            setPaymentStatus('expired')
+        }
+        else if (paymentConfirm?.status === 'FAILED') {
+            setPaymentStatus('failed')
+        }
+    }, [params.transactionId, paymentConfirm?.status]);
 
     if (isLoading || !data) {
         return (
@@ -92,12 +82,12 @@ const ConfirmPayment = () => {
                 !isLoading && !isError && (
                     <div className="flex flex-col justify-center items-center w-full gap-y-4">
                         {
-                            !isCompleted && paymentConfirm.expiry_time_midtrans && (
-                                <CountdownTimer eventDateProps={paymentConfirm.expiry_time_midtrans} />
+                            paymentStatus !== 'completed' && paymentConfirm.expiry_time_midtrans && (
+                                <CountdownTimer eventDateProps={paymentConfirm?.expiry_time_midtrans} />
                             )
                         }
                         {
-                            !isPending && !isFailed && isCompleted && (
+                            paymentStatus === 'completed' && (
                                 <div className="w-full p-4 bg-white shadow rounded-md text-center items-center justify-center flex flex-col gap-y-1">
                                     <div className="text-xl font-semibold mb-2">Status Pembayaran</div>
                                     <div className={`w-[12rem] rounded-md text-center my-3 text-2xl font-medium bg-success-500 text-white`}>
@@ -107,7 +97,7 @@ const ConfirmPayment = () => {
                             )
                         }
                         {
-                            !isCompleted && isPending && (
+                            paymentStatus === 'pending' && (
                                 <div className="w-full p-4 bg-white shadow rounded-md text-center items-center justify-center flex flex-col gap-y-1">
                                     <div className="text-xl font-semibold mb-2">Status Pembayaran</div>
                                     <div className={`w-[12rem] rounded-md text-center my-3 text-2xl font-medium bg-blue-500 text-white`}>
@@ -117,7 +107,7 @@ const ConfirmPayment = () => {
                             )
                         }
                         {
-                            isExpired && (
+                            paymentStatus === 'expired' && (
                                 <div className="w-full p-4 bg-white shadow rounded-md text-center items-center justify-center flex flex-col gap-y-1">
                                     <div className="text-xl font-semibold mb-2">Status Pembayaran</div>
                                     <div className={`w-[12rem] rounded-md text-center my-3 text-2xl font-medium bg-red-500 text-white`}>
@@ -127,7 +117,7 @@ const ConfirmPayment = () => {
                             )
                         }
                         {
-                            !isCompleted && !isPending && isFailed && (
+                            paymentStatus === 'failed' && (
                                 <div className="w-full p-4 bg-white shadow rounded-md text-center items-center justify-center flex flex-col gap-y-1">
                                     <div className="text-xl font-semibold mb-2">Status Pembayaran</div>
                                     <div className={`w-[12rem] rounded-md text-center my-3 text-2xl font-medium bg-red-500 text-white`}>
@@ -138,8 +128,8 @@ const ConfirmPayment = () => {
                         }
                         <PaymentInfo payment_type={paymentConfirm.payment_type_midtrans || null} bank={paymentConfirm.bank} va_number={paymentConfirm.va_number || null} url={paymentConfirm.url || null} total_price={paymentConfirm.total_price} orderCode={paymentConfirm.orderCode || null} />
                         {
-                            !isCompleted && (
-                                <Button className="p-2 w-[15rem] md:w-[20rem] md:w-max-[35rem] bg-gold-500 text-white rounded-lg" onClick={handleCheckOrderStatus}>
+                            paymentStatus !== 'completed' && (
+                                <Button className="p-2 w-[15rem] md:w-[20rem] max-w-[35rem] bg-gold-500 text-white rounded-lg" onClick={handleCheckOrderStatus}>
                                     Cek Status Pesanan
                                 </Button>
                             )

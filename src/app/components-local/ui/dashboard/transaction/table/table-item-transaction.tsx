@@ -13,6 +13,7 @@ const TableItemTransaction = (
           <th className="p-3">Layanan</th>
           <th className="p-3">Harga</th>
           <th className="p-3">Jadwal</th>
+          <th className="p-3">Status Layanan</th>
           <th className="p-3">Pegawai</th>
         </tr>
       </thead>
@@ -54,6 +55,17 @@ const TableItemTransaction = (
               </td>
               <td className="p-3 text-center w-[10rem] whitespace-nowrap">{item.price}</td>
               <td className="p-3 text-center w-[12rem] whitespace-nowrap">{dateFormatter(item.reservationDate)}</td>
+              <td className="p-3 text-center w-[12rem] whitespace-nowrap">
+                {{
+                  CANCELED: "Dibatalkan",
+                  COMPLETED: "Selesai",
+                  EXPIRED: "Kedaluwarsa",
+                  PAID: "Sudah dibayar",
+                  IN_PROGRESS: "Sedang Berlangsung",
+                  PENDING: "Ditunda",
+                  SCHEDULED: "Terjadwal"
+                }[item?.serviceStatus as string]}
+              </td>
               <td className="p-3 text-center w-[8rem] whitespace-nowrap">{item?.employeeId?.name || "Belum ditentukan"}</td>
             </tr>
           ))
