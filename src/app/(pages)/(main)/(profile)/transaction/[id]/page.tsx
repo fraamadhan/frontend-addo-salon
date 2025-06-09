@@ -37,6 +37,7 @@ const TransactionDetailPage = () => {
                                         CANCELED: "Dibatalkan",
                                         COMPLETED: "Selesai",
                                         EXPIRED: "Kedaluwarsa",
+                                        PAID: "Sudah dibayar",
                                         IN_PROGRESS: "Sedang Berlangsung",
                                         PENDING: "Ditunda",
                                         SCHEDULED: "Terjadwal"

@@ -5,7 +5,7 @@ import Link from "next/link";
 export const Footer = () => {
     const contactInfo = [
         { icon: <Pin />, text: 'Jl. PLN Dalam I, Ciseureuh, Kec. Regol, Kota Bandung, Jawa Barat 40255', type: 'address' },
-        { icon: <Calendar />, text: 'Selasa - Minggu | 09:00 - 17:00 WIB', type: 'time' },
+        { icon: <Calendar />, text: 'Selasa - Minggu | 07:00 - 18:00 WIB', type: 'time' },
         { icon: <Mail />, text: 'raeljarr@gmail.com', type: 'email', href: 'mailto:raeljarr@gmail.com' },
         { icon: <Phone />, text: '+62 895-6392-04727', type: 'tel', href: 'https://wa.me/+62895639204727' },
     ];

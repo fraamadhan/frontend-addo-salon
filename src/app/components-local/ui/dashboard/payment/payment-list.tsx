@@ -84,7 +84,7 @@ const PaymentList = (props: ParamsPaymentList) => {
                                                 <div className="max-h-32 overflow-y-auto">
                                                     <div className="flex flex-col gap-y-2">
                                                         {payment.items.map((item, i) => (
-                                                            <div key={i} className="flex flex-col md:flex-row justify-between">
+                                                            <div key={i} className="flex flex-col md:flex-row items-center justify-between">
                                                                 <p className="font-medium max-w-[10rem] truncate">{item.product.name}</p>
                                                                 <p className="leading-none text-sm text-gray-500">{rupiahFormatter(item.price)}</p>
                                                             </div>
@@ -115,12 +115,13 @@ const PaymentList = (props: ParamsPaymentList) => {
                                             <td className="p-1 text-center text-sm md:text-base w-1/8">
                                                 <div className="flex flex-col justify-center items-center gap-y-2">
                                                     <p
-                                                        className={`${payment.status === 'SCHEDULED' || payment.status === 'PAID' ? 'bg-success-300 text-success-500' : ''} ${payment.status === 'EXPIRED' ? 'bg-error-300 text-error-500' : ''} ${payment.status === 'UNPAID' ? 'bg-gray-300 text-gray-500' : ''} p-1 rounded-md w-[10rem] font-bold`}
+                                                        className={`${payment.status === 'PAID' ? 'bg-success-300 text-success-500' : ''} ${payment.status === 'EXPIRED' ? 'bg-error-300 text-error-500' : ''} ${payment.status === 'UNPAID' ? 'bg-gray-300 text-gray-500' : ''} p-1 rounded-md w-[10rem] font-bold`}
                                                     >
                                                         {{
                                                             UNPAID: 'Belum dibayar',
                                                             PAID: 'Sudah dibayar',
-                                                            EXPIRED: 'Kedaluwarsa'
+                                                            EXPIRED: 'Kedaluwarsa',
+                                                            SCHEDULED: 'Terjadwal'
                                                         }[payment.status]}
                                                     </p>
                                                     {
