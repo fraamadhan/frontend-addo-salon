@@ -8,7 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
 import { EyeIcon, EyeOffIcon, LoaderIcon } from "lucide-react";
 import { z } from 'zod';
-import { deleteAccessToken, getAccessToken, getUserIdFromToken } from "@/lib/token";
+import { deleteAccessToken, getAccessToken, getUserIdFromToken, getUserRoleFromToken } from "@/lib/token";
 import { toast } from "sonner";
 import { useUpdateUser } from "@/services/userService";
 import { useRouter } from "next/navigation";
@@ -50,6 +50,11 @@ const ProfileResetPassword = () => {
 
     const onSubmit = async (body: z.infer<typeof ResetPasswordSchema>) => {
 
+        const role = getUserRoleFromToken();
+
+        if (role) {
+            body.role = role
+        }
         mutation.mutate({ userId, token, body })
 
         resetField('oldPassword')
@@ -110,7 +115,7 @@ const ProfileResetPassword = () => {
                         <IconC onClick={handleShowOldPasswordToggle} />
                     </span>
                 </div>
-                {errors.password && <p className="text-red-500 text-sm mb-2">{errors.password.message}</p>}
+                {errors.oldPassword && <p className="text-red-500 text-sm mb-2">{errors.oldPassword.message}</p>}
                 <div className="mb-2 relative w-[16rem] sm:w-[18rem]">
                     <label htmlFor="password" className="font-federo font-semibold">
                         Kata Sandi Baru

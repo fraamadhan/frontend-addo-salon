@@ -47,7 +47,7 @@ export const ReviewItem = ({ review }: { review: ReviewItemProps }) => {
                 <div className="flex flex-col sm:flex-row md:flex-row w-full justify-between px-2 items-center space-y-2">
                     <p className="text-sm md:text-base">{review.product.name}</p>
                     <Link className="p-2 bg-gold-100 rounded-lg w-[8em] text-center" href={`/service/${review.product.name.split(' ').join('-')}/${review.product._id}`}>
-                        Lihat produk
+                        Lihat layanan
                     </Link>
                 </div>
             </div>

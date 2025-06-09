@@ -115,11 +115,11 @@ const PaymentList = (props: ParamsPaymentList) => {
                                             <td className="p-1 text-center text-sm md:text-base w-1/8">
                                                 <div className="flex flex-col justify-center items-center gap-y-2">
                                                     <p
-                                                        className={`${payment.status === 'SCHEDULED' ? 'bg-success-300 text-success-500' : ''} ${payment.status === 'EXPIRED' ? 'bg-error-300 text-error-500' : ''} ${payment.status === 'UNPAID' ? 'bg-gray-300 text-gray-500' : ''} p-1 rounded-md w-[10rem] font-bold`}
+                                                        className={`${payment.status === 'SCHEDULED' || payment.status === 'PAID' ? 'bg-success-300 text-success-500' : ''} ${payment.status === 'EXPIRED' ? 'bg-error-300 text-error-500' : ''} ${payment.status === 'UNPAID' ? 'bg-gray-300 text-gray-500' : ''} p-1 rounded-md w-[10rem] font-bold`}
                                                     >
                                                         {{
                                                             UNPAID: 'Belum dibayar',
-                                                            SCHEDULED: 'Sudah dibayar',
+                                                            PAID: 'Sudah dibayar',
                                                             EXPIRED: 'Kedaluwarsa'
                                                         }[payment.status]}
                                                     </p>
