@@ -142,8 +142,15 @@ const GeneralInformation = () => {
                         <>
                             {/* upload image */}
                             <div className="flex flex-col items-center justify-center w-full gap-y-4">
-                                <div className="w-48 h-48 rounded-full overflow-hidden flex-shrink-0">
-                                    <Image src={imagePreview || user?.asset?.publicUrl || "/si.jpeg"} alt="Foto profil pengguna" width={192} height={192} className="object-cover" priority={false} />
+                                <div className="w-48 h-48 rounded-full overflow-hidden relative flex-shrink-0 p-3 bg-gray-100">
+                                    <Image
+                                        src={imagePreview || user?.asset?.publicUrl || "/si.svg"}
+                                        alt="Foto profil pengguna"
+                                        fill
+                                        sizes="192px"
+                                        className="object-contain"
+                                        priority
+                                    />
                                 </div>
                                 <label
                                     htmlFor="file"

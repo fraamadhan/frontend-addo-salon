@@ -56,6 +56,7 @@ export const RegisterSchema = z.object({
 
 export const ResetPasswordSchema = z
   .object({
+    role: z.string().nullish(),
     password: z
       .string({
         required_error: "Kata sandi tidak boleh kosong",

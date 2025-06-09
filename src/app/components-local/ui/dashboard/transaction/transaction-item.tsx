@@ -15,7 +15,7 @@ const TransactionItem = ({ transaction }: { transaction: TransactionListItem }) 
                     <p className="text-gray-400 font-bold">{transaction.orderCode}</p>
                 </div>
                 <div className="w-full flex md:justify-end">
-                    <div className={`p-2 ${transaction.status === TransactionStatus.COMPLETED ? "bg-success-300 text-success-500" : ""} ${transaction.status === TransactionStatus.CANCELED || transaction.status === TransactionStatus.EXPIRED ? "bg-error-300 text-error-500" : ""} ${transaction.status === TransactionStatus.IN_PROGRESS || transaction.status === TransactionStatus.PENDING || transaction.status === 'SCHEDULED' ? "bg-blue-300 text-blue-500" : ""} font-bold text-[1rem] rounded-lg shadow-sm w-[7rem] max-w-[7rem] h-fit text-center`}>
+                    <div className={`p-2 ${transaction.status === TransactionStatus.COMPLETED || transaction.status === TransactionStatus.PAID ? "bg-success-300 text-success-500" : ""} ${transaction.status === TransactionStatus.CANCELED || transaction.status === TransactionStatus.EXPIRED ? "bg-error-300 text-error-500" : ""} ${transaction.status === TransactionStatus.IN_PROGRESS || transaction.status === TransactionStatus.PENDING || transaction.status === 'SCHEDULED' ? "bg-blue-300 text-blue-500" : ""} font-bold text-[1rem] rounded-lg shadow-sm w-[7rem] max-w-[7rem] h-fit text-center`}>
                         <p className="leading-none">
                             {{
                                 CANCELED: "Dibatalkan",
@@ -23,7 +23,8 @@ const TransactionItem = ({ transaction }: { transaction: TransactionListItem }) 
                                 EXPIRED: "Kedaluwarsa",
                                 IN_PROGRESS: "Sedang Berlangsung",
                                 PENDING: "Ditunda",
-                                SCHEDULED: "Terjadwal"
+                                SCHEDULED: "Terjadwal",
+                                PAID: "Sudah dibayar"
                             }[transaction.status]}
                         </p>
                     </div>

@@ -20,7 +20,7 @@ export const useGetUser = (token: string | undefined, id: string) => {
 
 export const useUpdateUser = ({ onSuccess, onError }: StateStatus) => {
   return useMutation({
-    mutationFn: async ({ userId, token, body }: { userId: string; token: string; body: FormData | Record<string, string> }) => {
+    mutationFn: async ({ userId, token, body }: { userId: string; token: string; body: FormData | Record<string, string | null> }) => {
       try {
         const response = await axiosInstance.patch(`${USER_ENDPOINT}${userId}`, body, {
           headers: {
