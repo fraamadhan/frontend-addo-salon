@@ -1,5 +1,6 @@
 import { TransactionItem, TransactionListItem } from "@/app/types/transaction-type";
 import { dateFormatter } from "@/lib/date-formatter";
+import { rupiahFormatter } from "@/lib/rupiah-formatter";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -53,7 +54,7 @@ const TableItemTransaction = (
                   </div>
                 </div>
               </td>
-              <td className="p-3 text-center w-[10rem] whitespace-nowrap">{item.price}</td>
+              <td className="p-3 text-center w-[10rem] whitespace-nowrap">{rupiahFormatter(item.price)}</td>
               <td className="p-3 text-center w-[12rem] whitespace-nowrap">{dateFormatter(item.reservationDate)}</td>
               <td className="p-3 text-center w-[12rem] whitespace-nowrap">
                 {{
