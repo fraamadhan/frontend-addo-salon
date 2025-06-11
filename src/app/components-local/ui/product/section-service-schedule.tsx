@@ -142,7 +142,12 @@ const SectionServiceSchedule = () => {
                                             <td className="p-2">{item.user.name}</td>
                                             <td className="hidden sm:table-cell p-2">{item.product.name}</td>
                                             <td className="p-2">{dateFormatter(item.reservationDate)}</td>
-                                            <td className="p-2">{item.serviceStatus}</td>
+                                            <td className="p-2">
+                                                {{
+                                                    SCHEDULED: "Terjadwal",
+                                                    IN_PROGRESS: "Sedang berlangsung"
+                                                }[item.serviceStatus]}
+                                            </td>
                                             <td className="p-2">{dateFormatter(item.estimatedFinishDate)}</td>
                                         </tr>
                                     ))

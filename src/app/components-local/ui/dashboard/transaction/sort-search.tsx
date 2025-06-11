@@ -79,7 +79,7 @@ const SortSearch = () => {
             </div>
             <div className="w-full md:w-2/5 flex flex-col gap-y-2 min-w-[15em] sm:min-w-[12em]">
                 <div className="font-bold leading-none">
-                    Status Pembayaran
+                    Status Transaksi
                 </div>
                 <div className="flex w-full md:w-[16rem] lg:w-[18rem] rounded-xl">
                     <Select value={selected} onValueChange={(value) => {
@@ -91,7 +91,7 @@ const SortSearch = () => {
                         </SelectTrigger>
                         <SelectContent className="w-[11em] flex flex-col space-y-3 text-gray-400 border rounded-xl p-2 ">
                             <SelectItem className="p-1" value={TransactionStatus.COMPLETED}>Selesai</SelectItem>
-                            <SelectItem className="p-1" value={TransactionStatus.SCHEDULED}>Terjadwal</SelectItem>
+                            <SelectItem className="p-1" value={TransactionStatus.PAID}>Sudah dibayar</SelectItem>
                             <SelectItem className="p-1" value={TransactionStatus.IN_PROGRESS}>Sedang Berlangsung</SelectItem>
                             <SelectItem className="p-1" value={TransactionStatus.PENDING}>Ditunda</SelectItem>
                             <SelectItem className="p-1" value={TransactionStatus.CANCELED}>Dibatalkan</SelectItem>

@@ -7,6 +7,7 @@ const HowToPayQris = () => {
             <ol className="list-decimal list-inside space-y-2 text-gray-700 text-sm md:text-base">
                 <li>Klik kanan pada gambar QR Code</li>
                 <li>Klik <span className="font-medium">&quot;Copy Image Address&quot;</span> atau <span className="font-medium">&quot;Salin Image Address&quot;</span></li>
+                <li>Atau dapat klik tombol &quot;Salin link QR Code&quot;</li>
                 <li>
                     Kunjungi halaman{" "}
                     <Link

@@ -8,6 +8,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { ResetPasswordSchema } from "@/lib/validation";
 import { useResetPassword } from "@/services/authService";
+import { useRouter } from "next/navigation";
 
 const Form = (props: {
   showPassword: boolean;
@@ -19,6 +20,7 @@ const Form = (props: {
 
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
+  const router = useRouter();
 
   const showPassword = props.showPassword ? "text" : "password";
   const showConfirmPassword = props.showConfirmPassword ? "text" : "password";
@@ -54,6 +56,7 @@ const Form = (props: {
       }
       else {
         setSuccess(data.data.message)
+        router.replace('/auth/login')
       }
     },
     onError: (error: any) => {

@@ -76,7 +76,7 @@ export const usePaymentTransaction = ({ onSuccess, onError }: StateStatus) => {
 
 export const useGetPaymentConfirm = ({ token, transactionId }: { token: string; transactionId: string }) => {
   return useQuery({
-    queryKey: ["getPaymentConfirm"],
+    queryKey: ["getPaymentConfirm", transactionId],
     queryFn: async () => {
       const response = await axiosInstance.get(`${TRANSACTION_ENDPOINT}/payment/confirm/${transactionId}`, {
         headers: {
