@@ -2,7 +2,7 @@
 
 import { CartResponse, CheckoutResponse } from "@/app/types/cart-response";
 import SummaryOrderItem from "./summary-order-item";
-import { totalEstimation, totalPriceCount } from "@/lib/general";
+import { totalPriceCount } from "@/lib/general";
 import { rupiahFormatter } from "@/lib/rupiah-formatter";
 import Button from "../button/button";
 import { useCheckoutCart } from "@/services/cartService";
@@ -17,7 +17,6 @@ const SummaryOrder = ({ selectedCarts, cartNotes }: { selectedCarts: CartRespons
 
     const router = useRouter();
     const totalPrice = useMemo(() => totalPriceCount(selectedCarts), [selectedCarts]);
-    const accumEstimation = useMemo(() => totalEstimation(selectedCarts), [selectedCarts]);
 
     const handleCheckoutCart = () => {
         const token = getAccessToken();
@@ -116,10 +115,6 @@ const SummaryOrder = ({ selectedCarts, cartNotes }: { selectedCarts: CartRespons
                         <SummaryOrderItem idx={idx + 1} key={item._id} item={item} />
                     ))
                 }
-            </div>
-            <div className="flex md:flex-col lg:flex-row justify-between w-full gap-y-2">
-                <p className="leading-none font-semibold">Total Estimasi</p>
-                <p className="leading-none font-semibold">{accumEstimation} jam</p>
             </div>
             <div className="flex md:flex-col lg:flex-row justify-between w-full text-sm xl:text-base gap-y-2">
                 <p className="leading-none text-lg font-semibold">Total Harga</p>
