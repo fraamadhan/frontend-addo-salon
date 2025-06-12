@@ -39,6 +39,7 @@ const HowToPayGopay = () => {
                         <i>Midtrans Simulator</i>
                     </Link>
                 </li>
+                <li>Pilih &quot;Deeplink&quot;</li>
                 <li>Paste link atau url ke input box &quot;redirect url&quot;</li>
                 <li>Klik tombol &quot;Submit&quot;</li>
             </ol>
