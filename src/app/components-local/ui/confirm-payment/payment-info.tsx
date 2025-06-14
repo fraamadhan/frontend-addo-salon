@@ -104,7 +104,7 @@ const PaymentInfo = ({ payment_type, bank, va_number, url, total_price, orderCod
                         orderCode && (
                             <tr className="border-t border-gold-500">
                                 <td className="p-2 font-medium">Kode Pesanan</td>
-                                <td className="p-2 text-right">MK-123</td>
+                                <td className="p-2 text-right">{orderCode}</td>
                             </tr>
                         )
                     }
