@@ -39,7 +39,7 @@ const RatingOverview = (
     }
 
     return (
-        <section className="w-[42rem] flex gap-x-7 py-7 px-1">
+        <section className="w-full md:w-[42rem] flex flex-col md:flex-row items-center gap-x-7 py-7 px-1">
 
             <div className="flex flex-col gap-y-3 items-center justify-center">
                 <div className="flex items-end justify-center gap-y-1">

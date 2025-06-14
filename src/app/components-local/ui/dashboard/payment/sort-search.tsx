@@ -90,7 +90,7 @@ const SortSearch = () => {
                             <SelectValue placeholder="Pilih" />
                         </SelectTrigger>
                         <SelectContent className="w-[11em] flex flex-col space-y-3 text-gray-400 border rounded-xl p-2 ">
-                            <SelectItem className="p-1" value={TransactionStatus.SCHEDULED}>Sudah Bayar</SelectItem>
+                            <SelectItem className="p-1" value={TransactionStatus.PAID}>Sudah Bayar</SelectItem>
                             <SelectItem className="p-1" value={TransactionStatus.UNPAID}>Belum Bayar</SelectItem>
                             <SelectItem className="p-1" value={TransactionStatus.EXPIRED}>Kedaluwarsa</SelectItem>
                         </SelectContent>
