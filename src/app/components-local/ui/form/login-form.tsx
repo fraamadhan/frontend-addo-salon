@@ -43,6 +43,7 @@ const Form = (props: {
     }
 
     const mutation = useLogin({
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         onSuccess: (data: any) => {
             if (data.data.status !== 200) {
                 setError(data.data.message)
@@ -52,6 +53,7 @@ const Form = (props: {
                 router.replace('/home');
             }
         },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         onError: (error: any) => {
             console.log(error)
             setError(error.message)
