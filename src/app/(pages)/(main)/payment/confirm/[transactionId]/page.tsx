@@ -19,7 +19,7 @@ const ConfirmPayment = () => {
     const params = useParams<{ transactionId: string }>();
 
     const { data, isLoading, isError } = useGetPaymentConfirm({ token, transactionId: params.transactionId })
-    const { data: order, refetch } = useGetStatusOrder({ token, transactionId: params.transactionId })
+    const { refetch } = useGetStatusOrder({ token, transactionId: params.transactionId })
 
     const paymentConfirm: PaymentConfirmType = data?.data ?? null;
 
