@@ -15,7 +15,7 @@ const ResetPasswordPage = () => {
     const token = params.token?.toString() ?? "";
     const router = useRouter();
 
-    const { status, data, isLoading, error } = useVerifyToken(token);
+    const { status, data, isLoading } = useVerifyToken(token);
 
     useEffect(() => {
         if (status === 'success' && data?.data.status === 200) {

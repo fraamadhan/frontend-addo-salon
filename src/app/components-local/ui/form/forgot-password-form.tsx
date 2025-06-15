@@ -31,6 +31,7 @@ const Form = () => {
     }
 
     const mutation = useVerifyEmailForgotPassword({
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         onSuccess: (data: any) => {
             if (data.data.status !== 200) {
                 setError(data.data.message);
@@ -38,6 +39,7 @@ const Form = () => {
                 setSuccess(data.data.message)
             }
         },
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         onError: (error: any) => {
             console.log(error)
             setError(error.message)
