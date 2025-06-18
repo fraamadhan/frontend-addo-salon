@@ -3,14 +3,14 @@
 import { deleteAccessToken } from "@/lib/token";
 import Button from "../button/button";
 import ProfileIcon from "./profile";
-import { CreditCard, ScrollText, LogOut } from "lucide-react";
+import { CreditCard, ScrollText, LogOut, NotebookIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { User } from "@/app/types/general";
 import Link from "next/link";
 import { toast } from "sonner";
 
 
-const DropdownItem = (props: { user: User | null, showMenu: boolean | null, setShowMenu: () => void | null | undefined }) => {
+const DropdownItem = (props: { user: User | null, showMenu?: boolean | null, setShowMenu?: () => void }) => {
 
     const router = useRouter();
 
@@ -39,6 +39,11 @@ const DropdownItem = (props: { user: User | null, showMenu: boolean | null, setS
             <div className="flex items-center space-x-4 cursor-pointer hover:bg-gray-600 p-2">
                 <ScrollText />
                 <Link href={'/transaction'} onClick={props.showMenu ? props?.setShowMenu : () => { }}>Daftar Transaksi</Link>
+            </div>
+            {/* Ulasan */}
+            <div className="flex items-center space-x-4 cursor-pointer hover:bg-gray-600 p-2">
+                <NotebookIcon />
+                <Link href={'/review'} onClick={props.showMenu ? props?.setShowMenu : () => { }}>Ulasan</Link>
             </div>
             {/* Tombol keluar */}
             <div className="flex items-center space-x-4 cursor-pointer hover:bg-gray-600 p-2">
