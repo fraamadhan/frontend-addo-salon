@@ -11,7 +11,7 @@ const ReviewItemSection = ({ review }: { review: ReviewItemProps }) => {
     return (
         <div className="w-full flex gap-x-2 bg-white rounded-md shadow-sm p-2">
             <div className="w-9 h-9 rounded-full overflow-hidden flex-shrink-0">
-                <Image src={review.user.assetRef || "/si.jpeg"} alt="Foto profil pengguna" width={36} height={36} className="object-cover" priority={false} />
+                <Image src={review.user.assetRef || "/si.svg"} alt="Foto profil pengguna" width={36} height={36} className="object-cover" priority={false} />
             </div>
             <div className="flex flex-col w-full gap-y-1">
                 <p className="text-sm font-semibold">{review.user.name}</p>

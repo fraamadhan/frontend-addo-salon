@@ -18,12 +18,12 @@ const DesktopHeader = (props: { isLogin: boolean, user: User | null }) => {
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
     >
-        <ProfileIcon name={props.user?.name} image={props.user?.asset?.publicUrl ?? "/si.jpeg"} />
+        <ProfileIcon name={props.user?.name} image={props.user?.asset?.publicUrl ?? "/si.svg"} />
         {showDropdown && (
             <div className="absolute top-full -right-17"
                 onMouseEnter={() => setShowDropdown(true)}
                 onMouseLeave={() => setShowDropdown(false)}>
-                <DropdownMenu className="overflow-hidden rounded-b-xl origin-top-right shadow-lg bg-gray-400 focus:outline-none cursor-default z-50 w-[20em] pt-4" user={props.user} showMenu={null} />
+                <DropdownMenu className="overflow-hidden rounded-b-xl origin-top-right shadow-lg bg-gray-400 focus:outline-none cursor-default z-50 w-[20em] pt-4" user={props.user} showMenu={null} setShowMenu={() => { }} />
             </div>
         )}
     </div>)

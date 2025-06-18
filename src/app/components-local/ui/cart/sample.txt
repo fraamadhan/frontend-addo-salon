@@ -8,7 +8,7 @@ const CartItem = () => {
             <div className="flex-shrink-0 flex gap-3 items-start w-full sm:w-2/3">
                 <input type="checkbox" name="pick" id="pick" aria-label="checkout item" className="mt-1" />
                 <Image
-                    src="/si.jpeg"
+                    src="/si.svg"
                     width={80}
                     height={80}
                     alt="foto produk"

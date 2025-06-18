@@ -16,7 +16,7 @@ export const ReviewItem = ({ review }: { review: ReviewItemProps }) => {
                 <div className="flex justify-start items-center w-full space-x-2">
                     <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
                         <Image
-                            src={review?.user?.assetRef || '/si.jpeg'}
+                            src={review?.user?.assetRef || '/si.svg'}
                             width={48}
                             height={48}
                             alt={`Foto profil pengguna ${review?.user?.name}`}
