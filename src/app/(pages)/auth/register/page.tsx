@@ -1,5 +1,6 @@
 'use client'
 
+import { OAuthGoogle } from '@/app/components-local/ui/button/oauth-provider';
 import Form from '@/app/components-local/ui/form/register-form';
 import Link from 'next/link';
 import React, { useState } from 'react'
@@ -20,6 +21,12 @@ const RegisterPage = () => {
                 <div className="flex flex-col w-full md:w-1/2 justify-start p-7 rounded-lg shadow-lg space-y-3 bg-white">
                     <h1 className="font-lora text-2xl font-semibold mb-6">Daftar</h1>
                     <Form showPassword={showPassword} handleShowPasswordToggle={handleShowPasswordToggle} />
+                    <div className="flex items-center justify-center">
+                        <hr className="w-full border-1" />
+                        <div className="w-full text-center">atau</div>
+                        <hr className="w-full border-1" />
+                    </div>
+                    <OAuthGoogle label="Daftar dengan google" />
                     <Link href="/auth/login">Sudah punya akun? <span className="font-federo text-base text-gold-500 hover:text-blue-400">Masuk</span></Link>
                 </div>
             </div>
