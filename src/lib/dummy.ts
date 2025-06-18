@@ -3,7 +3,7 @@ import { ProductItemProps } from "@/app/types/general";
 export const salonProducts: ProductItemProps[] = [
   {
     _id: "ayam",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Luxury Hair Treatment",
     ratingAverage: 4.5,
     estimation: 60,
@@ -11,7 +11,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "aya",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Premium Haircut",
     ratingAverage: 4.8,
     estimation: 45,
@@ -19,7 +19,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "ay",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Deep Conditioning",
     ratingAverage: 4.2,
     estimation: 30,
@@ -27,7 +27,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "a",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Blowout Styling",
     ratingAverage: 4.7,
     estimation: 35,
@@ -35,7 +35,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "kuday",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Hair Coloring",
     ratingAverage: 4.3,
     estimation: 90,
@@ -43,7 +43,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "kuda",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Keratin Treatment",
     ratingAverage: 4.9,
     estimation: 120,
@@ -51,7 +51,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "kudaya",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Beard Trim",
     ratingAverage: 4.1,
     estimation: 20,
@@ -59,7 +59,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "kua",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Scalp Massage",
     ratingAverage: 4.6,
     estimation: 25,
@@ -67,7 +67,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "facial1",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Signature Facial Treatment",
     ratingAverage: 4.7,
     estimation: 60,
@@ -75,7 +75,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "wax1",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Full Body Waxing",
     ratingAverage: 4.3,
     estimation: 90,
@@ -83,7 +83,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "nail1",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Deluxe Manicure & Pedicure",
     ratingAverage: 4.8,
     estimation: 75,
@@ -91,7 +91,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "mass1",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Aromatherapy Massage",
     ratingAverage: 4.9,
     estimation: 60,
@@ -99,7 +99,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "lash1",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Eyelash Extensions",
     ratingAverage: 4.5,
     estimation: 90,
@@ -107,7 +107,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "brow1",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Microblading Session",
     ratingAverage: 4.6,
     estimation: 120,
@@ -115,7 +115,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "tan1",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Spray Tan Application",
     ratingAverage: 4.2,
     estimation: 30,
@@ -123,7 +123,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "make1",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Bridal Makeup Package",
     ratingAverage: 4.9,
     estimation: 90,
@@ -131,7 +131,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "skin1",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Chemical Peel Treatment",
     ratingAverage: 4.4,
     estimation: 45,
@@ -139,7 +139,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "body1",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Body Scrub & Wrap",
     ratingAverage: 4.7,
     estimation: 75,
@@ -147,7 +147,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "hair2",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Balayage Coloring",
     ratingAverage: 4.8,
     estimation: 180,
@@ -155,7 +155,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "face2",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Microdermabrasion",
     ratingAverage: 4.5,
     estimation: 50,
@@ -163,7 +163,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "nail2",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Gel Polish Application",
     ratingAverage: 4.6,
     estimation: 45,
@@ -171,7 +171,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "mass2",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Hot Stone Massage",
     ratingAverage: 4.9,
     estimation: 80,
@@ -179,7 +179,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "lash2",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Lash Lift & Tint",
     ratingAverage: 4.7,
     estimation: 60,
@@ -187,7 +187,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "brow2",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Brow Lamination",
     ratingAverage: 4.5,
     estimation: 45,
@@ -195,7 +195,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "make2",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Evening Glam Makeup",
     ratingAverage: 4.8,
     estimation: 60,
@@ -203,7 +203,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "skin2",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "LED Light Therapy",
     ratingAverage: 4.3,
     estimation: 30,
@@ -211,7 +211,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "body2",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Cellulite Reduction",
     ratingAverage: 4.2,
     estimation: 60,
@@ -219,7 +219,7 @@ export const salonProducts: ProductItemProps[] = [
   },
   {
     _id: "hair3",
-    assetRef: "/si.jpeg",
+    assetRef: "/si.svg",
     name: "Brazilian Blowout",
     ratingAverage: 4.7,
     estimation: 150,
@@ -240,7 +240,7 @@ export const dummyReviews = [
     user: {
       _id: "1",
       name: "User A",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -255,7 +255,7 @@ export const dummyReviews = [
     user: {
       _id: "2",
       name: "User B",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -271,7 +271,7 @@ export const dummyReviews = [
     user: {
       _id: "3",
       name: "User C",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -286,7 +286,7 @@ export const dummyReviews = [
     user: {
       _id: "4",
       name: "User D",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -301,7 +301,7 @@ export const dummyReviews = [
     user: {
       _id: "5",
       name: "User E",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -316,7 +316,7 @@ export const dummyReviews = [
     user: {
       _id: "6",
       name: "User F",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -331,7 +331,7 @@ export const dummyReviews = [
     user: {
       _id: "7",
       name: "User G",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -346,7 +346,7 @@ export const dummyReviews = [
     user: {
       _id: "8",
       name: "User H",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -361,7 +361,7 @@ export const dummyReviews = [
     user: {
       _id: "9",
       name: "User I",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -376,7 +376,7 @@ export const dummyReviews = [
     user: {
       _id: "10",
       name: "User J",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -391,7 +391,7 @@ export const dummyReviews = [
     user: {
       _id: "11",
       name: "User K",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -406,7 +406,7 @@ export const dummyReviews = [
     user: {
       _id: "12",
       name: "User L",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -421,7 +421,7 @@ export const dummyReviews = [
     user: {
       _id: "13",
       name: "User M",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -436,7 +436,7 @@ export const dummyReviews = [
     user: {
       _id: "14",
       name: "User N",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -451,7 +451,7 @@ export const dummyReviews = [
     user: {
       _id: "15",
       name: "User O",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -466,7 +466,7 @@ export const dummyReviews = [
     user: {
       _id: "16",
       name: "User P",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -481,7 +481,7 @@ export const dummyReviews = [
     user: {
       _id: "17",
       name: "User Q",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -496,7 +496,7 @@ export const dummyReviews = [
     user: {
       _id: "18",
       name: "User R",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -511,7 +511,7 @@ export const dummyReviews = [
     user: {
       _id: "19",
       name: "User S",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -526,7 +526,7 @@ export const dummyReviews = [
     user: {
       _id: "20",
       name: "User T",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -541,7 +541,7 @@ export const dummyReviews = [
     user: {
       _id: "21",
       name: "User U",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -556,7 +556,7 @@ export const dummyReviews = [
     user: {
       _id: "22",
       name: "User V",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -571,7 +571,7 @@ export const dummyReviews = [
     user: {
       _id: "23",
       name: "User W",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -586,7 +586,7 @@ export const dummyReviews = [
     user: {
       _id: "24",
       name: "User X",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -601,7 +601,7 @@ export const dummyReviews = [
     user: {
       _id: "25",
       name: "User Y",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -616,7 +616,7 @@ export const dummyReviews = [
     user: {
       _id: "26",
       name: "User Z",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -631,7 +631,7 @@ export const dummyReviews = [
     user: {
       _id: "27",
       name: "User AA",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -646,7 +646,7 @@ export const dummyReviews = [
     user: {
       _id: "28",
       name: "User AB",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -661,7 +661,7 @@ export const dummyReviews = [
     user: {
       _id: "29",
       name: "User AC",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -676,7 +676,7 @@ export const dummyReviews = [
     user: {
       _id: "30",
       name: "User AD",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -691,7 +691,7 @@ export const dummyReviews = [
     user: {
       _id: "31",
       name: "User AE",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
   {
@@ -706,7 +706,7 @@ export const dummyReviews = [
     user: {
       _id: "32",
       name: "User AF",
-      assetRef: "/si.jpeg",
+      assetRef: "/si.svg",
     },
   },
 ];

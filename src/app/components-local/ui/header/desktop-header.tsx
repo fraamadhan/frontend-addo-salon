@@ -18,7 +18,7 @@ const DesktopHeader = (props: { isLogin: boolean, user: User | null }) => {
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
     >
-        <ProfileIcon name={props.user?.name} image={props.user?.asset?.publicUrl ?? "/si.jpeg"} />
+        <ProfileIcon name={props.user?.name} image={props.user?.asset?.publicUrl ?? "/si.svg"} />
         {showDropdown && (
             <div className="absolute top-full -right-17"
                 onMouseEnter={() => setShowDropdown(true)}

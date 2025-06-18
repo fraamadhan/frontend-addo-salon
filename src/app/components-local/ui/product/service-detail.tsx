@@ -92,7 +92,7 @@ const ServiceDetail = ({ product, isLoading, isError }: { product: ServiceDetail
                         <>
                             <div className="relative w-[15rem] h-[23rem] md:w-[20rem] md:h-[28rem] bg-gray-100 flex items-center justify-center lg:justify-start rounded shadow-2xl overflow-hidden">
                                 <Image
-                                    src={product?.assetRef || "/si.jpeg"}
+                                    src={product?.assetRef || "/si.svg"}
                                     alt="Contoh gambar layanan jasa Addo Salon"
                                     fill
                                     className="object-cover"

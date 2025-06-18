@@ -37,7 +37,7 @@ const MobileHeader = (props: { isLogin: boolean, user: User | null }) => {
                         <X className="text-black w-6 h-6" />
                     </Button>
                 </div>
-                {props.isLogin ? <DropdownMenu className="w-full h-full flex flex-col justify-start p-4" user={props.user} showMenu={showMenu} /> : <AuthButton />}
+                {props.isLogin ? <DropdownMenu className="w-full h-full flex flex-col justify-start p-4" user={props.user} showMenu={showMenu} setShowMenu={() => setShowMenu(false)} /> : <AuthButton />}
             </div>
 
         </div>

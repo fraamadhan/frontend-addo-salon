@@ -35,7 +35,7 @@ const TransactionItem = ({ transaction }: { transaction: TransactionListItem }) 
                 {/* service information */}
                 <div className="w-full flex items-center gap-x-7">
                     <div className="w-[70px] h-[85px] md:w-[100px] md:h-[120px] relative">
-                        <Image src={transaction.items[0].product.assetRef || '/si.jpeg'} fill
+                        <Image src={transaction.items[0].product.assetRef || '/si.svg'} fill
                             sizes="(max-width: 100px) 100vw, (max-width: 1200px) 50vw, 33vw"
                             alt={`Gambar layanan`}
                             className="rounded-md object-cover"

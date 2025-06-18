@@ -37,7 +37,7 @@ const TableItemTransaction = (
                 <div className="flex items-center gap-x-3">
                   <div className="w-[60px] h-[72px] relative rounded-xl overflow-hidden shrink-0">
                     <Image
-                      src={item.product.assetRef || '/si.jpeg'}
+                      src={item.product.assetRef || '/si.svg'}
                       fill
                       sizes="60px"
                       className="object-cover rounded-xl"

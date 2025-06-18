@@ -46,7 +46,7 @@ const CartItem = ({ cart, note, checked, onCheckboxCart, onNoteChange }: { cart:
                 <div className="pt-2">
                     <input type="checkbox" checked={checked} name="pick" id="pick" aria-label="checkout item" className="w-4 h-4" onChange={() => onCheckboxCart(cart._id)} disabled={mutation.isPending} />
                 </div>
-                <Image src={cart.assetRef || '/si.jpeg'} width={80} height={80} alt="foto produk" className="object-cover rounded-md" />
+                <Image src={cart.assetRef || '/si.svg'} width={80} height={80} alt="foto produk" className="object-cover rounded-md" />
                 <Link className="w-full flex flex-col gap-y-2" href={`/service/${cart.product.name.split(' ').join('-')}/${cart.product._id}`}>
                     <p className="leading-none text-xl font-bold">{cart.product.name}</p>
                     <p className="leading-none text-xl font-bold">{rupiahFormatter(cart.price)}</p>
