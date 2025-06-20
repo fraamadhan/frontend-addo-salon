@@ -93,11 +93,6 @@ const UnreviewedItem = (
                         <p className="leading-none text-sm">{rupiahFormatter(item.price)}</p>
                     </div>
                 </div>
-                {/* total price */}
-                <div className="w-full flex md:flex-col items-center md:items-start justify-between md:justify-start gap-3">
-                    <p className="leading-none">Total Harga</p>
-                    <p className="leading-none font-bold text-lg">{rupiahFormatter(item.transaction.total_price)}</p>
-                </div>
             </div >
             {/* bottom */}
             <div className="flex items-center justify-end">
