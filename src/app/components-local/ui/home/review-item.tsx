@@ -25,7 +25,7 @@ export const ReviewItem = ({ review }: { review: ReviewItemProps }) => {
                         />
                     </div>
                     <div className="flex flex-col">
-                        <p className="text-sm md:text-base">{review?.user?.name}</p>
+                        <p className="text-sm md:text-base">{review?.user?.name ?? "Pengguna telah dihapus"}</p>
                         <div className="flex w-[5em] sm:w-[9em] md:w-[12em]">
                             {[...Array(fullStars)].map((_, i) => (
                                 <Star key={`full-${i}`} fill="#d4af37" stroke="#d4af37" />
